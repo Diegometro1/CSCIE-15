@@ -1,0 +1,1 @@
+Notes regarding Servers & Git will be posted here as they are covered in lecture.
