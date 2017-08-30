@@ -1,7 +1,7 @@
 ## Vocabulary preface
 + The term __local__ will refer to the copy of your application that is edited and run on your computer via your local server.
 
-+ The term __production__ (or sometimes *live*) will refer to the copy of your application that is run on a publicly accessible web server and is used by your audience.
++ The term __live__ (or sometimes *production*) will refer to the copy of your application that is run on a publicly accessible web server and is used by your audience.
 
 
 ## Development workflows
@@ -55,11 +55,15 @@ To continue your education on Git, you can refer to the following resources:
 + [gitref.org](http://gitref.org)
 
 ## To-do
-1. Local server (MAMP/XAMPP)
-3. Git
-4. Github.com
-5. Production server (DigitalOcean)
-6. Domains
+Weel 1:
+
++ Local server (MAMP/XAMPP)
+
+Week 2:
+
++ Git/Github.com
++ Live servers (DigitalOcean)
++ Domains
 
 The challenge ahead: many different variables...
 
@@ -68,6 +72,6 @@ The challenge ahead: many different variables...
 + Settings
 + Etc.
 
-Expect troubleshooting; expect things to not work on the first try.
+Expect troubleshooting; follow instructions carefully; retrace your steps when things don't work.
 
 Good news: set it and (mostly) forget it.

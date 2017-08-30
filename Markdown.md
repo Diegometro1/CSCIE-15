@@ -6,7 +6,7 @@ If you don't already know Markdown, fret not&mdash; it's a simple syntax languag
 
 To dig into Markdown read through this quick guide: [Github: Mastering Markdown](https://guides.github.com/features/mastering-markdown).
 
-Before you start, though, go to the [Issues page for this course](https://github.com/susanBuck/dwa15-fall2017/issues) and click *New Issue* on the top right. Here you can draft an Issue and practice with Markdown syntax. You don't actually have to post the Issue, so don't worry about the content. As you're writing, switch between **Write** and **Preview** to see how your post is being styled.
+Before you start, though, go to the [Issues](https://github.com/susanBuck/dwa15-fall2017/issues) forum for this course and click *New Issue* on the top right. Here you can draft an Issue and practice with Markdown syntax. You don't actually have to post the Issue, so don't worry about the content. As you're writing, switch between **Write** and **Preview** to see how your post is being styled.
 
 <img src='http://making-the-internet.s3.amazonaws.com/dwa-markdown-write-and-preview@2x.png' style='max-width:px;' alt=''>
 
@@ -27,6 +27,5 @@ As an example, I added an sample image (`octocat.png`) to this Github repository
 Then, using Markdown, I could display the image like so:
 
 ```md
-![Octocat](https://raw.githubusercontent.com/susanBuck/dwa15-fall2017/master/octocat.png
-)
+![Octocat](https://raw.githubusercontent.com/susanBuck/dwa15-fall2017/master/octocat.png)
 ```
