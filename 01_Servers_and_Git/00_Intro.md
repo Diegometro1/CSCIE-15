@@ -78,7 +78,7 @@ Good news: set it and (mostly) forget it.
 
 
 ## A note on Homestead and virtual machines
-As you work with Laravel, another local server option you'll frequently see reference to is [Homestead](https://laravel.com/docs/5.4/homestead) in combination with a virtual machine. This setup entails using software to boot up a unique operating system to act as a server on your computer.
+As you dig into Laravel later in the semester, another local server option you'll frequently see reference to is [Homestead](https://laravel.com/docs/5.4/homestead) in combination with a virtual machine. This setup entails using software to boot up a unique operating system to act as a server on your computer.
 
 In this course, we use MAMP/XAMPP instead of virtual machines for the following reasons:
 
