@@ -75,3 +75,15 @@ The challenge ahead: many different variables...
 Expect troubleshooting; follow instructions carefully; retrace your steps when things don't work.
 
 Good news: set it and (mostly) forget it.
+
+
+## A note on Homestead and virtual machines
+As you work with Laravel, another local server option you'll frequently see reference to is [Homestead](https://laravel.com/docs/5.4/homestead) in combination with a virtual machine. This setup entails using software to boot up a unique operating system to act as a server on your computer.
+
+In this course, we use MAMP/XAMPP instead of virtual machines for the following reasons:
+
++ Virtual machines can demand a lot of computer resources (space, processor speed, etc.) which not every student has access to
++ MAMP/XAMPP fits our needs and is arguably simpler to setup
++ Virtual machines excel when you are working on different applications that have unique server requirements. All the projects in this course have the same server requirements, so this feature is not necessary.
+
+A virtual machine setup may be something you &ldquo;grow into&ldquo; outside of the context of this course.
