@@ -3,9 +3,8 @@ If your MAMP or XAMPP Apache or MySQL server won't start, the first place you wa
 
 Here are the log file locations:
 
-+ MAMP: PHP, Apache and MySQL logs are all found in `/Applications/MAMP/logs`
++ MAMP: Apache and MySQL logs are all found in `/Applications/MAMP/logs`
 + XAMPP:
-    + PHP errors: `C:\xampp\php\logs`
     + Apache errors: `C:\xampp\apache\logs`
     + MySQL errors: `C:\xampp\mysql\data\mysql_error`
     + Alternatively, from the XAMPP Control Panel, there's a *logs* button next to each service.
