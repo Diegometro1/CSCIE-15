@@ -17,15 +17,3 @@ Of the styling features Markdown supports, here are the ones you should be sure 
 + Images
 + Code blocks with Syntax Highlighting
 + Inline code
-
-
-## Sharing images
-In order to include screenshots or other images in your posts you'll need to upload those images to some web accessible location.
-
-As an example, I added an sample image (`octocat.png`) to this Github repository, which is just one way to get an image online.
-
-Then, using Markdown, I could display the image like so:
-
-```md
-![Octocat](https://raw.githubusercontent.com/susanBuck/dwa15-fall2017/master/octocat.png)
-```
