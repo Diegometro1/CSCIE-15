@@ -36,6 +36,7 @@ $ adduser susanbuck
 ```
 
 The process will look like this:
+
 ```
 Adding user 'susanbuck' ...
 Adding new group 'susanbuck' (1000) ...
@@ -87,7 +88,7 @@ When you first set up DigitalOcean, you created a SSH key connection between you
 
 You'll want the same convenience/security that SSH keys provide for your new user as well, so lets set that up.
 
-(In the following steps, it's assumed that you've already created a public key (`id_rsa.pub`) on your local machine when you first followed the [Setup Git notes](https://github.com/susanBuck/dwa15-fall2015-notes/blob/master/01_Servers_and_Git/07_Setup_Github.md).)
+(In the following steps, it's assumed that you've already created a public key (`id_rsa.pub`) on your local machine when you first followed the [Git setup notes](https://github.com/susanBuck/dwa15-fall2017/blob/master/01_Servers_and_Git/03_Git_setup.md).)
 
 Open a *new* Terminal/Cmder window, so we can grab your public key from your local machine, without losing your connection to your Droplet.
 
@@ -197,7 +198,7 @@ $ ssh -T git@github.com
 
 
 ## SSH Key Cheat Sheet
-If you're having a hard time wrapping your head around the various SSH key pairs we've set up in this course, check out this [SSH Keys Cheat Sheet](https://github.com/susanBuck/dwa15-fall2015-notes/blob/master/01_Servers_and_Git/99_SSH_Keys_Cheat_Sheet.md).
+If you're having a hard time wrapping your head around the various SSH key pairs we've set up in this course, check out this [SSH Keys Cheat Sheet](https://github.com/susanBuck/dwa15-fall2017/blob/master/01_Servers_and_Git/99_SSH_Keys_Cheat_Sheet.md).
 
 
 

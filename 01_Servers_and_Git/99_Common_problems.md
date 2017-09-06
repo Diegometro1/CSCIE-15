@@ -95,5 +95,5 @@ Note, this only happens when you do `git pull origin master` not `git pull`
 
 
 Reference:
-[StackOverflow 1](http://stackoverflow.com/questions/14835515/local-git-clone-is-ahead-of-origin-even-though-no-local-changes-were-made)
-[StackOverflow 2](http://stackoverflow.com/questions/2432579/git-your-branch-is-ahead-by-x-commits)
+[1](http://stackoverflow.com/questions/14835515/local-git-clone-is-ahead-of-origin-even-though-no-local-changes-were-made) |
+[2](http://stackoverflow.com/questions/2432579/git-your-branch-is-ahead-by-x-commits)
