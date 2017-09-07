@@ -331,7 +331,7 @@ If that happens, you will not be able to login from your banned IP address for t
 Note that these default settings can all be adjusted in your `/etc/fail2ban/jail.local` config file. In that file, you can also &ldquo;whitelist&rdquo; your IP address so it will not get banned. If your network provider uses dynamic IPs, however, this change will not be permanent.
 
 ## Take a Snapshot of your Current Configuration
-You've now put a fair amount of work in to configuring your Droplet. Given that, you should take advantage of [DigitalOcean's *Snapshot* feature](https://github.com/susanBuck/dwa15-fall2015-notes/blob/master/01_Servers_and_Git/99_Extras/03_Digital_Ocean_Snapshots.md).
+You've now put a fair amount of work in to configuring your Droplet. Given that, you should take advantage of [DigitalOcean's *Snapshot* feature](https://github.com/susanBuck/dwa15-fall2017/blob/master/01_Servers_and_Git/999_Extras/02_DigitalOcean_Backups.md).
 
 
 ## Tips/Notes
