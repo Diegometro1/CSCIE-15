@@ -78,7 +78,7 @@ To start, copy the following code into a new text editor window (your code edito
 </VirtualHost>
 ```
 
-In plain english, this VirtualBlock block code says: *when traffic comes in via `hello-world.dwa15.me`, point to the `/var/www/html/hello-world` directory*.
+In plain English, this VirtualBlock block code says: *when traffic comes in via `hello-world.dwa15.me`, point to the `/var/www/html/hello-world` directory*.
 
 Edit this VirtualHost block so that the the `ServerName` (`hello-world.dwa15.dev`) value matches *your* domain.
 
@@ -115,6 +115,7 @@ $ service apache2 restart
 Once the restart is complete, test out your subdomain `http://hello-world.yourdomain.com`.
 
 <img src='http://making-the-internet.s3.amazonaws.com/version-control-subdomain-good@2x.png' class='' style='max-width:603px;' alt='Subdomain working'>
+
 
 
 ## Recap

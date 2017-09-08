@@ -1,5 +1,4 @@
 ## Tracking changes
-
 With your local repository set up and connected to your remote repository at Github.com, you're ready to start tracking changes to your project.
 
 Everything we have done to this point has been setup steps that you only do once when starting a new project/assignment. Everything that follows reflects the kind of git work you'll do on a day-to-day basis.
@@ -153,13 +152,53 @@ Check your repository in Github.com to make sure the commit is there.
 
 
 ## View hello-world on your local server
-Before continuing to practice with git, let's make it so you can view this `hello-world` example on your local server.
+Before continuing to practice with git, let's make it so you can run this `hello-world` example application on your local server.
 
-1. Change your local server's document root to point to `/path/to/your/htdocs/hello-world/`
-2. Restart your local server
-3. Visit http://localhost and make sure you see the `index.php` file
+To do this, change your local server's document root to point to `/path/to/your/htdocs/hello-world/`:
+
+__MAMP users__, click *Preferences* then *Web Server* and change your document root to point to your `hello-world` folder.
+
+<img src='http://making-the-internet.s3.amazonaws.com/sysadmin-set-doc-root-hello-world-mamp@2x.png' style='max-width:538px;' alt=''>
+
+__XAMPP users__, click *Config* > *Apache (httpd.conf)* then find these two lines:
+
+```
+DocumentRoot "C:/xampp/htdocs"
+<Directory "C:/xampp/htdocs">
+```
+
+And update them to:
+
+```
+DocumentRoot "C:/xampp/htdocs/hello-world"
+<Directory "C:/xampp/htdocs/hello-world">
+```
 
 
+<img src='http://making-the-internet.s3.amazonaws.com/sysadmin-set-doc-root-hello-world-xampp@2x.png' style='max-width:538px;' alt=''>
+
+After you save these changes, make sure your server restarts then visit `http://localhost` and confirm you see the `hello-world` homepage (`index.php`) we built in the above steps.
+
+
+## Why do we have to switch the document root for each application?
+Technically, we could have left the document root set to the `htdocs/` folder and accessed `hello-world` via a URL with a subdirectory, `http://localhost/hello-world`.
+
+However, that treats the `hello-world` application as a subdirectory rather than its own independent application with its own document root. The latter is how our production servers will be set up, so we want to be consistent with that locally.
+
+Why does it matter? Consider the following scenario:
+
++ If document root is `/htdocs`
++ And we visit `http://localhost/hello-world`
++ `<img src='/images/kitten.jpeg'>` would fail to load the image. Why?
++ Because the document root is `/htdocs` so it'd look for an image at `/htdocs/images/kitten.jpeg` which does not exist.
+
+Versus:
++ If document root is `/htdocs/hello-world`
++ And we visit `http://localhost`
++ `<img src='/images/kitten.jpeg'>` would successfully load the image. Why?
++ Because the document root is `/htdocs/hello-world` so it'd look for an image at `/hello-world/images/kitten.jpeg` which does exist.
+
+It can be tedious to have to change the document root whenever you want to switch between working on different applications. As an (optional) alternative, you can [set up local domains](https://github.com/susanBuck/dwa15-fall2017/blob/master/01_Servers_and_Git/09_Local_domain.md) for any application you work on.
 
 
 

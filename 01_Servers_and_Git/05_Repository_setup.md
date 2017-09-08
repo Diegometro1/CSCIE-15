@@ -20,7 +20,7 @@ Next you want to clone the `hello-world` repository to your computer, which requ
 
 In this example, the address is `git@github.com:susanBuck/hello-world.git`. (If you're seeing an address that starts with `https`, click the blue text that says *Use SSH*).
 
-Via command line on your computer, navigate to the document root of your local server (i.e. your htdocs folder); this is where we'll clone the `hello-world` repository.
+Via command line on your computer, navigate to your htdocs folder where where you'll clone the `hello-world` repository.
 
 __Mac__ users:
 ```xml

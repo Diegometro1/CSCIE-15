@@ -8,8 +8,8 @@ With these instructions you could set it up so that...
 
 + `http://helloworld.yourdomain.com` has a local equivalent at `http://helloworld.loc`
 + `http://foobooks.yourdomain.com` has a local equivalent at `http://foobooks.loc`
-+ `http://a1.yourdomain.com` has a local equivalent at `http://a1.loc`
-+ `http://a2.yourdomain.com` has a local equivalent at `http://p2.loc`
++ `http://p1.yourdomain.com` has a local equivalent at `http://p1.loc`
++ `http://p2.yourdomain.com` has a local equivalent at `http://p2.loc`
 + etc...
 
 In the notes below, we'll set up `http://foobooks.loc` as our example.
