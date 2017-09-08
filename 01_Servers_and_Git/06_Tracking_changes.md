@@ -198,7 +198,7 @@ Versus:
 + `<img src='/images/kitten.jpeg'>` would successfully load the image. Why?
 + Because the document root is `/htdocs/hello-world` so it'd look for an image at `/hello-world/images/kitten.jpeg` which does exist.
 
-It can be tedious to have to change the document root whenever you want to switch between working on different applications. As an (optional) alternative, you can [set up local domains](https://github.com/susanBuck/dwa15-fall2017/blob/master/01_Servers_and_Git/09_Local_domain.md) for any application you work on.
+It can be tedious to have to change the document root whenever you want to switch between working on different applications. As an (optional) alternative, you can [set up local domains](https://github.com/susanBuck/dwa15-fall2017/blob/master/01_Servers_and_Git/09_Local_domain.md) with unique document roots for any application you work on.
 
 
 
