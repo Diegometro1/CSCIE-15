@@ -1,15 +1,20 @@
-In this course we're using what's commonly referred to as the LAMP stack:
+When discussing software, a **stack** refers to the technologies a particular application is using. On the web, a stack typically entails an operating system, a web server, a database server, and a particular programming language.
 
-+ The __L__ stands for __Linux__ - which is a common OS used for web servers. Your live servers will run on some flavor of Linux, but your local servers will actually run on Mac or Windows (more on that later).
+For example, in this course when we deploy our applications on a live server, those servers will be using a &ldquo;LAMP&rdquo; stack:
+
++ The __L__ stands for __Linux__ - Main operating system the server is using.
 + The __A__ stands for __Apache__ - Open-source web server.
 + The __M__ stands for __MySQL__ - Open-source database server.
 + The __P__ stands for __PHP__ - Web scripting language.
 
-When setting up a local server, you could individually download and install Apache, PHP and MySQL or use an all-in-one package such as [MAMP](http://www.mamp.info/en/) (our choice for Mac) or [XAMPP](https://www.apachefriends.org/index.html) (our choice for Windows). Below are instructions for setting up both.
+In order to run, debug, and test our applications, we want to mirror this stack on our own local machines, substituting Linux for whatever operating system we use.
+
+We could individually download and install Apache, PHP and MySQL on our computers, but a simpler approach is to use a program that manages all three such as [MAMP](https://mamp.info) or [XAMPP](https://www.apachefriends.org/index.html).
+
+While both MAMP and XAMPP are cross-platform, experience in past semesters suggest that MAMP works best for Mac users and XAMPP works best for PC users, so that is my reccommendation. Below are instructions for setting up both.
 
 
 ## MAMP Setup on Mac
-
 Download and install MAMP: <https://mamp.info/en/downloads>
 
 <small>Note: The download includes both free *MAMP* and *MAMP Pro* (paid version). You'll only need to use the free MAMP version in this class.</small>
