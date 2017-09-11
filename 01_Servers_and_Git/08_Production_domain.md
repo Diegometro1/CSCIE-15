@@ -26,9 +26,9 @@ If you have an existing domain you'd like to use, that's fine. If not, you can c
 
 After you create your domain, find your **DNS settings** within your domain companies' control panel. In Namecheap, these settings are located by finding the domain you'd like to configure in your **Domain List** and then clicking **Manage**. Then, find the tab for **Advanced DNS**
 
-In your DNS settings, you'll set both your `@` and `www` hostname to your DigitalOcean's server IP address.
+In your DNS settings, set your `@` hostname to your DigitalOcean's server IP address.
 
-Also, while you're there, add a new *A Record* with the *host* `hello-world` which also points to the same IP. This will create the subdomain `http://hello-world.yourdomain.com`.
+Also, while you're there, add a new *A Record* with the *host* `hello-world` which also points to your DigitalOcean IP address. This will create the subdomain `http://hello-world.yourdomain.com`.
 
 <img src='http://making-the-internet.s3.amazonaws.com/version-control-namecheap-dns@2x.png' style='max-width:1015px; width:100%' alt='Namecheap DNS'>
 
