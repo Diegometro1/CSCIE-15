@@ -66,3 +66,8 @@ function getCelsius(int $temperature, $includeUnit = true)
     }
 }
 ```
+
+# Non-PHP code
+There are no specific style guides I ask you adhere to when it comes to JavaScript, CSS, or HTML in your work.
+
+However, just like PHP, it's expected that this code is consistent and neat for maximum legibility, following the best practices and requirements for the respective language.
