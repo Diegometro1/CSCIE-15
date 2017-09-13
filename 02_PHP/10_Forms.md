@@ -222,15 +222,8 @@ __For Project 2, you can use any of these designs.__
 
 
 
-## Form input types
+## More form input type examples
+Beyond text inputs (shown in the examples above), your project may also require checkboxes, radios, or drop-down inputs. Examples of each can be seen at the following urls.
 
-The ins and outs of using the following form field types will be demonstrated in lecture:
-
-+ Basic inputs (text, textarea, etc)
-+ Checkboxes
-+ Radios
-+ Dropdowns
-
-View examples in action at <http://php-practice.dwa15.com>
-
-View the code for the examples at <https://github.com/susanBuck/dwa15-php-practice>
++ Examples: http://php-practice.dwa15.com/forms/
++ Code for examples: <https://github.com/susanBuck/dwa15-php-practice/tree/master/forms>
