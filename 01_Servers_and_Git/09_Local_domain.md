@@ -137,7 +137,7 @@ Make sure you explicitly type in `http://foobooks.loc` with `http://` at the beg
 
 ## Fixing `http://localhost`
 
-After you make the above change you'll notice that http://localhost no longer works as expected&mdash; instead of pointing the document root you configure in MAMP/XAMPP, it will start pointing to the first VirtualHost block in your `httpd-vhosts.conf` file.
+After you make the above change you'll notice that `http://localhost` no longer works as expected&mdash; instead of pointing the document root you configure in MAMP/XAMPP, it will start pointing to the first VirtualHost block in your `httpd-vhosts.conf` file.
 
 To fix this, you can add a VirtualHost block specifically for `http://localhost`. I recommend having localhost just point to your htdocs folder.
 
