@@ -27,7 +27,6 @@ How the data is sent depends on what request type is being used&mdash; HTTP prot
 + When you visit a web page, the GET method is used.
 + When you submit a form to a web page, either the GET or POST method can be used.
 
-To be demonstrated in lecture: How to use the web inspector to explore request data.
 
 
 ## GET Example
