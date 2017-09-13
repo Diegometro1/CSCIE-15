@@ -10,7 +10,7 @@ A common use case for importing files, in any language, is to import a set of he
 
 As an example, create a new file called `helpers.php` in the document root from which you're working.
 
-[Fill this file with the code found here...](https://gist.github.com/susanBuck/43dc38cead34cf3e7da199953b634bd4)
+[Fill this file with the code found here...](https://github.com/susanBuck/dwa15-php-practice/blob/master/helpers.php)
 
 This code includes 2 helper functions:
 
