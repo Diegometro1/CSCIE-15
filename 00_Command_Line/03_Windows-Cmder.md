@@ -50,11 +50,9 @@ For an example, see the `alias.bat` file that creates the `alias` command.
 
 
 ## Aliases
-Run `alias help` for details
+Aliases are stored in `/config/aliases`.
 
-Aliases are stored in `config/aliases`
-
-Run `alias name=full command` to create an alias, or edit `config/aliases`.
+Run `alias name=full command` to create an alias, or edit `/config/aliases`.
 
 
 
