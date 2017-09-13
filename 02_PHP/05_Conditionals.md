@@ -4,7 +4,7 @@ PHP, like most programming languages, allows for conditional execution of code v
 Example: Single conditional with an `if` construct:
 
 ```php
-if($age > 18) {
+if ($age > 18) {
     $category = 'adult';
 }
 ```
@@ -13,42 +13,35 @@ Note the use of curly brackets to indicate the start and end of the conditional 
 
 Example: Either/or style conditional with an `if` and `else` construct:
 ```php
-if($age < 18) {
+if ($age < 18) {
     $category = 'child';
-}
-else {
+} else {
     $category = 'adult';
 }
 ```
 
 Example: Chained conditional with the `if`, `elseif`, and `else` construct:
 ```php
-if($age < 3) {
+if ($age < 3) {
     $category = 'baby';
-}
-elseif($age < 18) {
+} elseif ($age < 18) {
     $category = 'child';
-}
-else {
+} else {
     $category = 'adult';
 }
 ```
 
 Example: Chained conditionals can have several `elseif`s:
 ```php
-if($age < 3) {
+if ($age < 3) {
     $category = 'baby';
-}
-elseif($age < 16) {
+} elseif ($age < 16) {
     $category = 'child';
-}
-elseif($age < 18) {
+} elseif ($age < 18) {
     $category = 'adolescent';
-}
-elseif($age < 21) {
+} elseif ($age < 21) {
     $category = 'young adult';
-}
-else {
+} else {
     $category = 'adult';
 }
 ```
@@ -58,16 +51,16 @@ Example: Independent `if` constructs if your &ldquo;decisions&rdquo; are not exc
 ```php
 $privileges = 'You can: ';
 
-if($age > 16) {
+if ($age > 16) {
     $privileges .= 'drive, ';
 }
-if($age > 18) {
+if ($age > 18) {
     $privileges .= 'vote, ';
 }
-if($age > 21) {
+if ($age > 21) {
     $privileges .= 'purchase alcohol, ';
 }
-if($age > 75) {
+if ($age > 75) {
     $privileges .= 'retire, ';
 }
 ```

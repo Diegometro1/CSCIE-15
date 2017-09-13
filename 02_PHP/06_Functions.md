@@ -4,14 +4,13 @@
 Here's an example to demonstrate the syntax for user-defined functions:
 
 ```php
-function getCelsius(int $temperature, $includeUnit = true): String {
-
+function getCelsius(int $temperature, $includeUnit = true): String
+{
     $result = ($temperature - 32) / 1.8;
 
-    if($includeUnit) {
+    if ($includeUnit) {
         return $result .= ' C';
-    }
-    else {
+    } else {
         return $result;
     }
 }

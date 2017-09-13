@@ -12,10 +12,9 @@ First, it's important to know that a .php file can include both HTML and PHP cod
 date_default_timezone_set('America/New_York');
 $day = date('l');
 
-if(in_array($day, ['Friday', 'Saturday', 'Sunday'])) {
+if (in_array($day, ['Friday', 'Saturday', 'Sunday'])) {
     $toDo = 'relax';
-}
-else {
+} else {
     $toDo = 'work';
 }
 ?>
@@ -65,10 +64,9 @@ At the top of the file, there was a larger PHP code island that performed some l
 date_default_timezone_set('America/New_York');
 $day = date('l');
 
-if(in_array($day, ['Friday', 'Saturday', 'Sunday'])) {
+if (in_array($day, ['Friday', 'Saturday', 'Sunday'])) {
     $toDo = 'relax';
-}
-else {
+} else {
     $toDo = 'work';
 }
 ?>
@@ -100,11 +98,12 @@ __Example logic code:__
 <?php
 $x = 1;
 
-function square($x) {
+function square($x)
+{
     return $x * $x;
 }
 
-if(isset($user)) {
+if (isset($user)) {
     $loggedIn = true;
 }
 ?>
@@ -145,10 +144,9 @@ Create a new file, `todayLogic.php` and extract the logic code from `today.php` 
 date_default_timezone_set('America/New_York');
 $day = date('l');
 
-if(in_array($day, ['Friday', 'Saturday', 'Sunday'])) {
+if (in_array($day, ['Friday', 'Saturday', 'Sunday'])) {
     $toDo = 'relax';
-}
-else {
+} else {
     $toDo = 'work';
 }
 
@@ -194,11 +192,11 @@ However, other PHP constructs can facilitate your display. Consider this hypothe
 
 ```html
 <h1>Recent Orders</h1>
-<?php foreach($orders as $orderId => $order) { ?>
+<?php foreach ($orders as $orderId => $order) { ?>
     <a href='/orders/<?php echo $orderId'> <?php echo $order['dateTime'] ?>
 
     <div class='shipStatus'>
-        <?php if($order['shipped']) { ?>
+        <?php if ($order['shipped']) { ?>
             Your order has shipped! Tracking: <?php echo $order['trackingNumber']; ?>
         <?php else { ?>
             Expected ship date: <?php echo $order['shipDate']; ?>
@@ -214,7 +212,7 @@ Contrast this to if we wanted to add the total cost of all orders to our display
 ```html
 <?php
 $total = 0;
-foreach($orders as $orderId => $order) {
+foreach ($orders as $orderId => $order) {
     $total += $order['amount'];
 }
 ?>
@@ -246,7 +244,7 @@ It's a small difference, but the terser syntax will be appreciated in complex HT
 With for loops, instead of writing this:
 
 ```html
-<?php foreach($orders as $orderId => $order) { ?>
+<?php foreach ($orders as $orderId => $order) { ?>
     [...]
 <?php } ?>
 ```
@@ -254,7 +252,7 @@ With for loops, instead of writing this:
 You can replace the open/close curly brackets with a `:` and `endforeach`, like so:
 
 ```html
-<?php foreach($orders as $orderId => $order): ?>
+<?php foreach ($orders as $orderId => $order) : ?>
     [...]
 <?php endforeach; ?>
 ```
@@ -263,7 +261,7 @@ This syntax is actually more verbose, but it makes reading the code easier since
 
 The same alternative syntax can be used for if statements:
 ```php
-<?php if($order['shipped']): ?>
+<?php if ($order['shipped']) : ?>
     Your order has shipped! Tracking: <?=$order['trackingNumber'] ?>
 <?php else: ?>
     Expected ship date: <?=$order['shipDate'] ?>

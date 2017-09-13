@@ -8,7 +8,7 @@ $location = 'Cambridge';
 
 PHP variables don't have to be declared before they're used. Setting a variable for the first time will simultaneously declare that variable.
 
-Variable names should start with a letter or underscore, followed by any number of letters, numbers, or underscores.
+Variable names should start with a letter or underscore, and can be followed by any number of letters, numbers, or underscores.
 
 Acceptable:
 

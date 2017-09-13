@@ -223,7 +223,7 @@ Mexico
 Print the country code (key) of all the countries in the array
 
 ```php
-foreach($countries as $countryCode => $country) {
+foreach ($countries as $countryCode => $country) {
     echo $countryCode.'<br>';
 }
 ```
@@ -239,7 +239,7 @@ MX
 Print a line that uses the country name, code (key), and languages
 
 ```php
-foreach($countries as $countryCode => $country) {
+foreach ($countries as $countryCode => $country) {
     echo '<br>Primary language(s) of '.$country['name'].' ('.$countryCode.'): <br>';
 
     foreach($country['languages'] as $key => $language) {
@@ -265,7 +265,7 @@ Spanish
 ### Example 4
 Update the array so that all the country names are uppercase
 ```php
-foreach($countries as $countryCode => $country) {
+foreach ($countries as $countryCode => $country) {
     $countries[$countryCode]['name'] = strtoupper($countries[$countryCode]['name']);
 }
 ```
@@ -275,7 +275,7 @@ Note how indexing is used in the foreach loop to access the current country in t
 Alternatively, if you pass your value by reference, you can edit it directly, e.g.:
 
 ```php
-foreach($countries as $countryCode => &$country) {
+foreach ($countries as $countryCode => &$country) {
     $country['name'] = strtoupper($country['name']);
 }
 ```
