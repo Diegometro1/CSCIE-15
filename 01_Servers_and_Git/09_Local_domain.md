@@ -91,7 +91,7 @@ Windows/Cmder:
 $ elevate nano c:\xampp\apache\conf\extra\httpd-vhosts.conf
 ```
 
-At the bottom of this file, add your own VirtualHost block:
+At the __bottom__ of this file, add your own VirtualHost block:
 
 Mac/MAMP users, yours might look something like this:
 ```txt
@@ -126,20 +126,16 @@ Windows/XAMPP users, yours might look something like the following. (The details
 Adjust the following as needed:
 
 1. `ServerName` (use `.loc` or `.dev` to distinguish it from the live TLD)
-2. `DocumentRoot`
+2. `DocumentRoot` (Points to the project directory, or in the case of Laravel projects, to the `public/` folder in your project directory.)
 3. `Directory` (same as `DocumentRoot`)
 
 Note, the above VirtualHost blocks assumes you're running on Port 80 (`*:80`). If you're running your local Apache on a different port, make that edit.
-
-This is what your `httpd-vhosts.conf` file might look like when you're done:
-
-<img src='http://making-the-internet.s3.amazonaws.com/vc-vhosts-done@2x.png' class='' style='max-width:726px; width:75%' alt=''>
 
 **Restart your local server** and test out your local URL.
 
 Make sure you explicitly type in `http://foobooks.loc` with `http://` at the beginning. If you don't, your browser may just try and do a web search for `foobooks.loc` because it does not recognize `.loc` as a domain extension.
 
-## Fixing http://localhost
+## Fixing `http://localhost`
 
 After you make the above change you'll notice that http://localhost no longer works as expected&mdash; instead of pointing the document root you configure in MAMP/XAMPP, it will start pointing to the first VirtualHost block in your `httpd-vhosts.conf` file.
 
