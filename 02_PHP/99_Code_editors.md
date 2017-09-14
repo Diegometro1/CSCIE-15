@@ -1,4 +1,4 @@
-Ideally, you should work with code editor that supports PHP as it will give you access to tools that make writing and debugging PHP code easier.
+Ideally, you should work in a code editor that supports PHP as it will give you access to tools that make writing and debugging PHP code easier.
 
 An example of a very php-friendly editor is an Integrated Development Environment (IDE) like [PHPStorm](https://www.jetbrains.com/phpstorm) ([student license](https://www.jetbrains.com/student)) which is packed with both general and PHP-specific tools.
 
