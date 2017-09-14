@@ -7,14 +7,13 @@ PHPStorm is a fantastic program, but it has a steeper learning curve than a more
 Alternatively, a more general editor like [Atom](https://atom.io) may be easier to work with, while still providing essential PHP-related tools.
 
 
-__Atom indicating PHP errors in code:__
+### Atom indicating PHP errors in code:
 <img src='http://making-the-internet.s3.amazonaws.com/php-errors-in-atom@2x.png' style='max-width:597px;' alt='PHP Errors in Atom'>
 
 __Note @ Wed Sep 13 11:45pm:__ *It's been drawn my attention that the package setup instructions for this particular feature has changed. I'll work on revised instructions to be posted either this Thu or Fri and I'll send out an announcement when they're ready.*
 
-<br>
-__Atom providing PHP autocomplete functionality__
 
+### Atom providing PHP autocomplete functionality
 Using the package [autocomplete-php](https://atom.io/packages/autocomplete-php)
 <img src='http://making-the-internet.s3.amazonaws.com/php-autocomplete-in-atom@2x.png' style='max-width:527px;' alt='Autocomplete PHP in Atom'>
 
