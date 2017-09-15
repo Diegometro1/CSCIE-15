@@ -226,13 +226,18 @@ So a typical workflow might look like this:
 
 ## Tips/Notes
 
+### File location
 Apache error and configuration files on DigitalOcean:
 
 + Apache error log: `/var/log/apache2/error.log`
 + Apache configuration: `/etc/apache2/httpd.conf`
 
-SSH Keys between your computer and DigitalOcean will only work on Droplets that were created *after* you set up the key. To set up a key for an existing Droplet, navigate into your computer's .ssh directory and run this command:
 
-```bash
-cat id_rsa.pub | ssh root@[your.ip.address.here] "cat >> ~/.ssh/authorized_keys"
+### Permission denied (publickey)
+If you are unable to SSH into your server and receive the following message:
+
+```xml
+Permission denied (publickey)
 ```
+
+...read [these instructions](https://github.com/susanBuck/dwa15-fall2017/blob/master/01_Servers_and_Git/999_Extras/03_Permission_denied_public_key.md).
