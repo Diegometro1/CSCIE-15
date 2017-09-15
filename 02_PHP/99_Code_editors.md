@@ -22,12 +22,12 @@ If you're new to Atom, start by reading [this guide](http://flight-manual.atom.i
 Once `autocomplete-php` is installed, you need to configure it so it knows where PHP is installed on your computer. To do this, open your packages in preferences.
 
 + Mac: Click `Atom` > `Preferences` then choose `Packages` from the side bar
-+ PC: Click `File` > `Preferences` then choose `Packages` from the side bar
++ PC: Click `File` > `Settings` then choose `Packages` from the side bar
 
 Find the package `autocomplete-php` and scroll down to __Settings__ looking for the __PHP Executable Path__ field.
 
 + Mac users enter this: `/Applications/MAMP/bin/php/php7.1.6/bin/php`
-+ PC Users enter this: `C:\xampp\php\`
++ PC Users enter this: `c:\xampp\php\php.exe`
 
 <img src='http://making-the-internet.s3.amazonaws.com/php-set-autcomplete-php-package-path@2x.png' style='max-width:970px;' alt='Setting your PHP executable path'>
 
@@ -61,7 +61,7 @@ Mac/MAMP:
 PC/XAMPP:
 ```
   "linter-php":
-    executablePath: "C:\xampp\php\"
+    executablePath: "c:\\xampp\\php\\php.exe"
 ```
 
 Here's a screenshot of what the above changes look like in my Atom config file:
