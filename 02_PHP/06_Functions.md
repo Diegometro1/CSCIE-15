@@ -4,7 +4,7 @@
 Here's an example to demonstrate the syntax for user-defined functions:
 
 ```php
-function getCelsius(int $temperature, $includeUnit = true): String
+function getCelsius(int $temperature, $includeUnit = true)
 {
     $result = ($temperature - 32) / 1.8;
 
