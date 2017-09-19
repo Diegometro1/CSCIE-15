@@ -20,7 +20,11 @@ __Properties__ are the characteristics of the class, e.g. a Book class might hav
 + `publishedDate`
 + etc.
 
-__Methods__ are functions in the class.
+__Methods__ are things that class can do, e.g. a Book class might have these methods:
+
++ `update`
++ `delete`
++ `getSimilar`
 
 This can be summarized as follows: *A class has characteristics (properties) and it can do things (methods)*.
 
