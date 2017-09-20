@@ -1,5 +1,3 @@
-# Classes
-
 ## Object Oriented Programming
 Object Oriented Programming (OOP) is a style of programming that aims to create clean, maintainable, reusable code.
 
@@ -34,12 +32,11 @@ From classes comes __objects__.
 
 If a class is a cookie-cutter, the object is the cookie.
 
-In lecture, we'll look at four different example classes:
+In lecture, we'll look at three different example classes:
 
 1. `Cipher` - a class that mimics the kind of work you may do in Project 2
 2. `Form` - a class to help with working with forms, including validation methods
-2. `Library` - a class to help organize our foobooks work thus far
-4. `Helper` - a static class we'll create from the existing code in `helpers.php`
+2. `Book` - a class to help organize our foobooks work thus far
 
 
 ## The basics
@@ -122,44 +119,6 @@ $book = new Book('The Great Gatsby');
 ```
 
 Given this, if you have statements that you want executed *every time* a class is instantiated, put those statements in the construct method.
-
-
-
-
-## Statically using classes
-Generally, when using classes you first instantiate an object from that class.
-
-For example, if you had a class called Email, you'd do something like this:
-
-```php
-$email = new Email();
-```
-
-And then maybe you'd write something like this (assuming your Email Class had a `send()` method):
-
-```php
-$email->send('jamal@gmail.com', 'Hello!');
-```
-
-Typically, instantiating objects from classes like this is the way to go.
-
-However, you can also **statically** invoke a method from a class, which skips the step of invoking an object of that class.
-
-This is done using the class name, followed by `::`, then the method name. For example:
-
-```php
-Email::send('jamal@gmail.com','Hello!');
-```
-
-The downside of statically using classes is you don't have the benefit of storing properties with the object, which is one of the great advantages of OOP.
-
-However, there are some instances where you might have a class with some miscellaneous utility methods that don't necessarily have related data. In that case, statically using that class is acceptable.
-
-If we were to bundle the functions from `helpers.php` into a Helper class, we'd see a good use-case of static methods:
-
-```
-Helper::dump($data);
-```
 
 
 ## Namespacing
