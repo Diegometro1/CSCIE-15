@@ -141,6 +141,9 @@ Both of these packages have a class called `Message`.
 So if you write...
 
 ```php
+require('libraries/Texter/Message.php');
+require('libraries/AutoCaller/Message.php');
+
 $message = new Message();
 ```
 

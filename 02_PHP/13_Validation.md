@@ -35,3 +35,8 @@ If interested, there is some &ldquo;low hanging fruit&rdquo; in terms of client-
 
 ## Form helper
 In Week 4's lecture videos, I'll introduce a class ([Form.php](https://github.com/susanBuck/dwa15-php-practice/blob/master/Form.php)) that has helper methods to assist you with form validation.
+
+Examples:
++ Code: [dwa15-php-practice/formDemo.php](https://github.com/susanBuck/dwa15-php-practice/blob/master/formDemo.php)
++ Code: [dwa15-php-practice/formDemoLogic.php](https://github.com/susanBuck/dwa15-php-practice/blob/master/formDemoLogic.php)
++ In action: [formDemo.php](http://php-practice.dwa15.com/formDemo.php)
