@@ -151,6 +151,37 @@ The solution to this problem is __namespacing__. Using namespacing, you can spec
 Here's a basic example:
 
 ```php
-$message1 = new Texter\Message;
-$message2 = new AutoCaller\Message;
+<?php
+require('libraries/Texter/Message.php');
+require('libraries/AutoCaller/Message.php');
+
+$message1 = new Texter\Message();
+$message2 = new AutoCaller\Message();
 ```
+
+Another way you can specify a class namespace is by adding `use` statement in the file where you intend to use the class. This is the approach you'll see me use in Week 4's lecture videos:
+
+```php
+<?php
+require('Book.php');
+
+use Foobooks\Book;
+
+$books = new Book('books.json');
+```
+
+Using this approach, if I were working with classes that had conflicting names, I'd want to add a `use` statement with an __alias__ for each conflicting class name. An alias is set using the `as` keyword, like so:
+
+```php
+<?php
+require('libraries/Texter/Message.php');
+require('libraries/AutoCaller/Message.php');
+
+use Texter\Message as TextMessage;
+use AutoCaller\Message as VoiceMessage;
+
+$message1 = new TextMessage(); # Note how I instantiate the class using it's alias
+$message2 = new VoiceMessage(); # Note how I instantiate the class using it's alias
+```
+
+Read more: [PHP.net : Namespacing > Aliasing/Importing](http://php.net/manual/en/language.namespaces.importing.php)
