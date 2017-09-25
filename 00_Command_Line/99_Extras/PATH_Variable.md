@@ -21,11 +21,11 @@ One way to add new paths to your PATH variable is to add them in the `/etc/paths
 
 Let's use an example scenario of adding the PHP executable that comes with MAMP to your PATH. This will make it so that when you run the command `php` from command line, it will use MAMP's PHP executable.
 
-This semester, the version of PHP we're using with MAMP is `php7.1.0`:
+This semester, the version of PHP we're using with MAMP is `php7.1.6`:
 
 <img src='http://making-the-internet.s3.amazonaws.com/sysadmin-identify-latest-version-of-php-in-mamp@2x.png' style='max-width:538px'>
 
-If you dig into the MAMP folder contents on your computer, you can find a PHP executable in `/Applications/MAMP/bin/php/php7.1.0/bin`, so that's the path we want to add.
+If you dig into the MAMP folder contents on your computer, you can find a PHP executable in `/Applications/MAMP/bin/php/php7.1.6/bin`, so that's the path we want to add.
 
 <img src='http://making-the-internet.s3.amazonaws.com/sysadmin-finding-php-in-mamp@2x.png' style='max-width:1433; width:100%' alt='Finding PHP in MAMP'>
 
@@ -38,7 +38,7 @@ $ sudo nano /etc/paths
 At the **top** of `/etc/paths`, add this line:
 
 ```xml
-/Applications/MAMP/bin/php/php7.1.0/bin
+/Applications/MAMP/bin/php/php7.1.6/bin
 ```
 
 <img src='http://making-the-internet.s3.amazonaws.com/sysadmin-append-to-paths@2x.png' style='max-width:803px; width:100%' alt=''>
@@ -50,23 +50,16 @@ Close and restart Terminal. (This step is important! If you don't do this, your 
 Test it out:
 
 ```bash
-# Where is php?
 $ which php
-
-# What version?
-$ php -v
+/Applications/MAMP/bin/php/php7.1.6/bin/php
 ```
 
-Expected output:
-```xml
-$ which php
-/Applications/MAMP/bin/php/php7.1.0/bin/php
+```bash
 $ php -v
-PHP 7.1.0 (cli) (built: Dec 15 2016 18:04:29) ( NTS )
-Copyright (c) 1997-2016 The PHP Group
-Zend Engine v3.1.0-dev, Copyright (c) 1998-2016 Zend Technologies
+PHP 7.1.6 (cli) (built: Jul  3 2017 15:25:20) ( NTS )
+Copyright (c) 1997-2017 The PHP Group
+Zend Engine v3.1.0, Copyright (c) 1998-2017 Zend Technologies
 ```
-
 
 
 ## Windows: Edit your PATH
@@ -112,22 +105,15 @@ Close and restart Cmder. (This step is important! If you don't do this, your cha
 Test it out:
 
 ```bash
-# Where is php?
 $ where.exe php
-
-# What version?
-$ php -v
+c:\xampp\php\php.exe
 ```
 
-Expected output:
-```xml
-$ where.exe php
-C:\xampp\php\php.exe
-
+```bash
 $ php -v
-PHP 7.0.13 (cli) (built: Nov 8 2016 13:45:27) ( ZTS )
-Copyright (c) 1997-2016 The PHP Group
-Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
+PHP 7.1.8 (cli) (built: Aug  1 2017 21:10:46) ( ZTS MSVC14 (Visual C++ 2015) x86 )
+Copyright (c) 1997-2017 The PHP Group
+Zend Engine v3.1.0, Copyright (c) 1998-2017 Zend Technologies
 ```
 
 
