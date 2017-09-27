@@ -52,5 +52,8 @@ One of features of Composer is that it builds and manages a class map for you, a
 You don't have to worry about using/understanding auto-loading right now, just know that when we use it, it's being powered by Composer.
 
 
+## Composer = server-side packages
+To be clear, Composer will be used to manage __server-side, PHP-based packages__. You will not use Composer for client-side packages such as jQuery or Bootstrap. If/how you incorporate client packages in your projects is up to you - you can manually download them to your project, link them from a CDN, or use a client-side package manager such as [yarn](https://yarnpkg.com/en).
+
 ## Docs
 <https://getcomposer.org/doc>
