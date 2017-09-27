@@ -38,7 +38,7 @@ $ sudo mkswap /swapfile
 Next, enable the swap space:
 
 ```
-sudo swapon /swapfile
+$ sudo swapon /swapfile
 ```
 
 Finally, we want to make it so the server always enables this swap space, even after a reboot. To do this, open `/etc/fstab` with nano:
@@ -143,7 +143,7 @@ $ sudo a2enmod rewrite
 
 Restart Apache to make these this change take effect:
 ```xml
-$ sudo service apache2 restart
+$ service apache2 restart
 ```
 
 

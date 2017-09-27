@@ -16,10 +16,10 @@ While SSH'd into your Droplet, navigate into your document root at `/var/www/htm
 $ cd /var/www/html
 ```
 
-Now use Git to clone your project from Github. In the following example I'm showing `foobooks` being cloned from my Github account. Edit as necessary for whatever app you're deploying.
+Now use Git to clone your project from Github. Edit as necessary with your username and app name.
 
 ```xml
-$ git clone git@github.com:susanBuck/foobooks.git
+$ git clone git@github.com:username/foobooks.git
 ```
 
 Navigate into the resulting directory (in this case, it's `foobooks`) and use a list command to confirm all your files are there.
@@ -90,9 +90,8 @@ And now do the same two steps for the `bootstrap/cache` directory:
 $ sudo chown -R www-data bootstrap/cache
 ```
 
-<sup>
 Ref: [SuperUser: Setting correct permissions for uploading files](http://superuser.com/a/581259/84723)
-</sup>
+
 
 
 
