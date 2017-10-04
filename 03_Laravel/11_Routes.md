@@ -48,7 +48,7 @@ Route::get('/book/{title}', function($title) {
 
 Test the above route by visiting `http://foobooks.loc/book/war-and-peace`.
 
-Next, test it again, but this time purposefully exclude the book title, `http://foobooks.loc/book/`; this should throw a `NotFoundHttpException` error.
+Next, test it again, but this time purposefully exclude the book title, `http://foobooks.loc/book/`; this should show a generic error page that says *Sorry, the page you are looking for could not be found*.
 
 
 ### Optional route parameters
