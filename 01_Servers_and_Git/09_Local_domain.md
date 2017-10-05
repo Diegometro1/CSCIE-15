@@ -61,7 +61,7 @@ $ sudo nano /private/etc/hosts
 Windows/Cmder:
 
 ```bash
-$ elevate nano c:/Windows/System32/drivers/etc/hosts
+$ elevate nano c:\Windows\System32\drivers\etc\hosts
 ```
 
 At the bottom of your hosts file, add a new host:
