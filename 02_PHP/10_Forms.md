@@ -57,7 +57,7 @@ echo 'You searched for '.$_GET['searchTerm'];
 Observations about `foobooks.php`:
 + The form element has a `method` attribute set to `GET`
 + The form element has an `action` attribute, specifying where this form should be submitted to (`search.php`).
-+ The single input in the form as a `name` attribute, which will be used to identify that data
++ The single input in the form has a `name` attribute, which will be used to identify that data
 
 Run the above example and submit with the search term &ldquo;fiction&rdquo;.
 
