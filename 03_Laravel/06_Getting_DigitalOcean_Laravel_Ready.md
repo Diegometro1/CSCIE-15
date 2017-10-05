@@ -77,7 +77,7 @@ Move into your bin directory where you'll install Composer:
 $ cd /usr/local/bin
 ```
 
-Use cURL to download Composer:
+Use cURL to download Composer and then execute the resulting download with PHP:
 
 ```bash
 $ curl -sS https://getcomposer.org/installer | sudo php
@@ -103,16 +103,41 @@ The image we built our DigitalOcean Droplets from came installed with PHP 7.0 bu
 
 To avoid conflicts we want these two environments to be in sync so let's update PHP on the Droplet. We'll also install a few modules that Laravel needs.
 
-To do this, we'll use `apt-get`, a command line utility for managing packages on Ubuntu's systems (which our Droplets run on).
+To do this, we'll use `apt-get`, a command line utility for managing packages on Ubuntu systems (which our Droplets run on).
 
 Run the following commands, one at a time. Follow the instructions to hit `Enter` or `Y` (yes) when prompted.
 
-```
+First, specify a new repository `apt-get` can download software packages from. The repository we're adding is [ppa:ondrej/php](https://launchpad.net/~ondrej/+archive/ubuntu/php), the primary source for PHP-related packages.
+
+
+```bash
 $ sudo add-apt-repository ppa:ondrej/php
+```
+
+
+Next, run `apt-get` to get the latest packages from your apt-get repositories (including your newly added one, `ppa:ondrej/php`)
+
+```bash
 $ sudo apt-get update
+```
+
+Now that everything is updated, we'll install `php7.1` as well as some other necessary modules:
+```
 $ sudo apt-get install php7.1 php7.1-mysql php7.1-xml php7.1-mbstring php7.1-xml zip unzip
+```
+
+Tell Apache to disable the older version of PHP:
+```
 $ sudo a2dismod php7.0
+```
+
+And enable PHP 7.1:
+```
 $ sudo a2enmod php7.1
+```
+
+Restart the Apache web server to make your changes take effect.
+```
 $ service apache2 restart
 ```
 
@@ -135,7 +160,7 @@ And you can confirm Apache is running the correct version by visiting `http://yo
 ## Enable mod_rewrite
 Laravel requires Apache's `mod_rewrite` for Routing purposes.
 
-To enable this module, run the following command on your DigitalOcean droplet:
+To enable this module, run the following command:
 
 ```xml
 $ sudo a2enmod rewrite
