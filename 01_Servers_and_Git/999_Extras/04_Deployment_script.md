@@ -60,6 +60,8 @@ Change `usernameServer` to match the combination you typically use to SSH into y
 
 (Do not add any spaces before/after the equal sign)
 
+While you have this file open, skim through its contents to understand what it does. The file is written using a shell scripting language, but aside from syntax differences, the basic flow should be mostly understandable.
+
 Next, give the deploy script executable [permissions](https://github.com/susanBuck/dwa15-fall2017/blob/master/00_Command_Line/99_Extras/Permissions.md) (`+x`) on your local machine:
 ```
 $ chmod +x bash/deploy.sh
@@ -77,7 +79,7 @@ $ git push origin master
 SSH into your server to pull the latest changes (including this new script).
 
 ```xml
-$ ssh root@digital.ocean.ip.address
+$ ssh root@server.ip.address
 $ cd /var/www/html/foobooks
 $ git pull origin master
 ```
@@ -118,7 +120,7 @@ nothing to commit, working directory clean
 Do you want to continue with deployment? (y/n)
 ```
 
-If you do have changed files on your server you'll see them listed, and you may want to abort deployment (by typing `n`) so that you can resolve any potential conflicts before they occur.
+If you do have changed files on your server you'll see them listed, and __you may want to abort deployment (by typing `n`) so that you can resolve any potential conflicts before they occur.__
 
 If you continue with deployment (by typing `y`), you'll see something like this, which shows the output of a `git pull origin master` followed by a `composer install`:
 

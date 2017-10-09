@@ -7,19 +7,20 @@ docRoot="/var/www/html/foobooks"
 usernameServer="root@server.ip.address"
 
 
-# Outputs a line in bold text
+# Function to output a line in bold text
 dump () {
     echo "\033[1m"$1"\033[0m"
 }
 
 
-# Outputs a line seperator
+# Function to output a line seperator
 line () {
     dump "--------------------------------------"
 }
 
 
-# [Local] Shows git status on server, prompts for whether to deploy or not
+# Function to show a `git status` on server and prompts for whether to deploy or not
+# This function is invoked when this script is run on your local machine.
 welcome () {
     line
     dump "Git status on server for $docRoot:"
@@ -44,7 +45,8 @@ welcome () {
 }
 
 
-# [Server]
+# Function to deploy: pull changes, run composer install
+# This function is invoked when this script is invoked on your server
 deploy () {
     cd $docRoot;
     line
@@ -60,7 +62,8 @@ deploy () {
 if [ -d "$docRoot" ]; then
     echo 'Detected location: Server - Running deployment.'
     deploy
-# Otherwise, if this script is run locally, it should prompt for deployment
+# Otherwise, if this script is run locally,
+# it should invoke `welcome` to determine whether to deploy
 else
     echo 'Detected location: Local'
     welcome
