@@ -47,7 +47,20 @@ We can streamline the process even further by creating a [git alias](https://git
 ### Step 1) Local setup
 Copy the contents [of this file](https://raw.githubusercontent.com/susanBuck/dwa15-fall2017/master/01_Servers_and_Git/999_Extras/deploy.sh) and save it locally in your project as `bash/deploy.sh` (you'll need to create the subdirectory `bash`).
 
-Locally, give the deploy script executable [permissions](https://github.com/susanBuck/dwa15-fall2017/blob/master/00_Command_Line/99_Extras/Permissions.md) (`+x`):
+At the top of this file are two configuration variables you need to customize:
+
+```
+docRoot="/var/www/html/foobooks"
+usernameServer="root@server.ip.address"
+```
+
+Change `docRoot` to the document root for the applicable project on your production server.
+
+Change `usernameServer` to match the combination you typically use to SSH into your server.
+
+(Do not add any spaces before/after the equal sign)
+
+Next, give the deploy script executable [permissions](https://github.com/susanBuck/dwa15-fall2017/blob/master/00_Command_Line/99_Extras/Permissions.md) (`+x`) on your local machine:
 ```
 $ chmod +x bash/deploy.sh
 ```
@@ -79,7 +92,7 @@ $ chmod +x /var/www/html/foobooks/bash/deploy.sh
 ### Step 3) Setup alias locally
 Locally, in the root of your project run the following command to create a new git alias for `pd` (short for `push deploy`):
 
-```bash
+```xml
 $ git config alias.pd '!git push origin master && bash/deploy.sh'
 ```
 
@@ -159,7 +172,7 @@ chmod +x bash/deploy.sh
 
 When running `ls -l` your permissions for the deployment script should be set to `-rw-r--r--`. Example:
 
-```bash
+```xml
 $ cd bash
 $ ls -l
 total 8

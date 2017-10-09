@@ -4,7 +4,7 @@
 # Customize the following for your project/server
 #
 docRoot="/var/www/html/foobooks"
-usernameServer="root@165.227.216.17"
+usernameServer="root@server.ip.address"
 
 
 # Outputs a line in bold text
