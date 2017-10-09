@@ -47,7 +47,7 @@ We can streamline the process even further by creating a [git alias](https://git
 ### Step 1) Local setup
 Locally, [download this file]() and put it in a subdirectory of your project called `bash/`
 
-Locally, give the deploy script executable permissions (`+x`):
+Locally, give the deploy script executable [permissions](https://github.com/susanBuck/dwa15-fall2017/blob/master/00_Command_Line/99_Extras/Permissions.md) (`+x`):
 ```
 $ chmod +x bash/deploy.sh
 ```
@@ -69,7 +69,7 @@ $ cd /var/www/html/foobooks
 $ git pull origin master
 ```
 
-With the deploy script now on your server, give it executable permissions (`+x`)
+With the deploy script now on your server, give it executable [permissions](https://github.com/susanBuck/dwa15-fall2017/blob/master/00_Command_Line/99_Extras/Permissions.md) (`+x`)
 
 ```xml
 $ chmod +x /var/www/html/foobooks/bash/deploy.sh
