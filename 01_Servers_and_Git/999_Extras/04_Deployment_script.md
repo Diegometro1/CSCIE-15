@@ -45,7 +45,7 @@ We can streamline the process even further by creating a [git alias](https://git
 
 ## Setup
 ### Step 1) Local setup
-Locally, [download this file]() and put it in a subdirectory of your project called `bash/`
+Locally, [copy the contents of this file](https://raw.githubusercontent.com/susanBuck/dwa15-fall2017/master/01_Servers_and_Git/999_Extras/deploy.sh) and save it as `bash/deploy.sh` in your project (you'll need to create the subdirectory `bash`).
 
 Locally, give the deploy script executable [permissions](https://github.com/susanBuck/dwa15-fall2017/blob/master/00_Command_Line/99_Extras/Permissions.md) (`+x`):
 ```
