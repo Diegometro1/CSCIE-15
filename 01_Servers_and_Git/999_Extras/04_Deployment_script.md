@@ -181,6 +181,15 @@ total 8
 -rw-r--r--   1 Susan  admin  1314 Oct  9 16:36 deploy.sh
 ```
 
+### Adding additional deployment commands
+`git pull origin master` and `composer install` are the two main deployment commands we need to run on our servers, but deployment scripts can be customized to run more commands based on your application/team needs.
+
+For example, Laravel has an artisan command to combine all configuration files into one flat file, making the loading of configurations quicker. It'd be logical to run this command with each deployment to regenerate that flat file, so the following command might be added to the `deploy` function in the `deploy.sh` script:
+
+```bash
+php artisan config:cache
+```
+
 
 ## More about shell scripting
 Shell scripts use their own syntax language. Looking at the provided `deploy.sh` you can see the syntax for basic programming paradigms such as variables, functions, and switch statements. [You can learn more about the basics of writing shell scripts here...](https://www.panix.com/~elflord/unix/bash-tute.html)
