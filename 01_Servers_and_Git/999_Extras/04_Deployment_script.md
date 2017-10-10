@@ -38,7 +38,7 @@ composer install
 
 Running these 5 commands can be streamlined into a single command via a __deployment script__.
 
-A deployment script is a [shell script](https://www.panix.com/~elflord/unix/bash-tute.html) (i.e. a command line script) that lets you group together a series of commands.
+A deployment script is a [shell script](https://www.panix.com/~elflord/unix/bash-tute.html) (i.e. a command line script) that lets you group together a series of commands you want to run when deploying changes to your application on production.
 
 We can streamline the process even further by creating a [git alias](https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases) to git push and invoke your deployment script.
 
