@@ -9,6 +9,7 @@ In these notes, we'll do the following:
 3. Update PHP, install some necessary modules
 3. Enable `mod_rewrite`
 
+To get started, SSH into your DigitalOcean server and then continue with the following...
 
 ## Enable a swap file for more memory
 Composer can be memory intensive, so we'll want to configure our low-memory DigitalOcean droplets to use a swap file.
