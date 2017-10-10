@@ -226,14 +226,12 @@ It should look exactly as it did before:
 
 
 ## Understanding how Blade works
-When you load a view, the Blade templating engine converts any Blade syntax into regular PHP syntax and a cached version of that view is created and stored in `/storage/framework/views/`
+When you load a view, the Blade templating engine converts any Blade syntax into regular PHP syntax and a cached version of that view is created and stored in `/storage/framework/views/`. That cached version will be loaded the next time the same view is requested *unless* that view has been updated (at which point it will re-cache).
 
 Open any of the files in `/storage/framework/views/` to see an example of a rendered view from the examples we ran above.
 
-Note that when you have bugs in your views, the Laravel whoops page will reference the code in the rendered/cached version of your view, *not* the original blade file.
-
-Given this, you may have to occasionally refer to these cache files to track down where a problem is.
+Note that when you have bugs in your views, the Laravel whoops page will reference the code in the rendered/cached version of your view, *not* the original blade file. Given this, you may have to occasionally refer to these cache files to track down where a problem is.
 
 
 ## Misc
-+ [Blade cheat sheet]()
++ [Blade cheat sheet](https://github.com/susanBuck/dwa15-fall2017/blob/master/03_Laravel/18_Blade_cheat_sheet.md)
