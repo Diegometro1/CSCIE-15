@@ -46,9 +46,9 @@ But, there's more. Further down in the Debugbar documentation, there's some *Usa
 Let's take those instructions and test them out in a temporary `/debugbar` route:
 
 ```php
-Route::get('/debugbar', function() {
+Route::get('/debugbar', function () {
 
-    $data = Array('foo' => 'bar');
+    $data = ['foo' => 'bar'];
     Debugbar::info($data);
     Debugbar::info('Current environment: '.App::environment());
     Debugbar::error('Error!');
@@ -56,7 +56,6 @@ Route::get('/debugbar', function() {
     Debugbar::addMessage('Another message', 'mylabel');
 
     return 'Just demoing some of the features of Debugbar';
-
 });
 ```
 
