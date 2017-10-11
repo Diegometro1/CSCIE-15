@@ -1,6 +1,6 @@
 # Configurations and Environments
 
-# Configurations
+## Configurations
 When building an application, it's helpful to have a configuration system that allows you to specify settings for your application.
 
 For insight into the kind of configurations an app uses, browse the files in the `/config` folder in your Laravel app.
