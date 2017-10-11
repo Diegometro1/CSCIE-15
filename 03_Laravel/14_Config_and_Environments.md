@@ -1,7 +1,53 @@
 # Configurations and Environments
 
-## Purpose of environments
-Building a modern web application often entails running that application in different environments that have different configuration needs.
+# Configurations
+When building an application, it's helpful to have a configuration system that allows you to specify settings for your application.
+
+For insight into the kind of configurations an app uses, browse the files in the `/config` folder in your Laravel app.
+
+Note how each file contains an array of configuration values.
+
+These values are accessible throughout your application using Laravel's `config` helper.
+
+Examples:
+```php
+# *all* the mail related configs
+dump(config('mail'));
+
+# One specific config from the mail configs
+dump(config('mail.host'));
+```
+
+Many of the configs that ship with Laravel are used by Laravel when your application is run. For example, Laravel's [Mail](https://laravel.com/docs/5.5/mail) functionality will refer/use the configs when sending email from your application.
+
+You can also utilize the configs when writing your application code (we'll see examples of this in upcoming material).
+
+
+## Define your own configs
+You can add new configs for your application as needed. For example, in the `mail.php` config array, you might define what the support address is for your site:
+
+```
+# config/mail.php
+return [
+    [...]
+    'supportEmail' => 'help@foobooks.com'
+    [...]
+];
+```
+
+Now, whenever you want to display this address, you can pull it from the config:
+
+```
+Questions? Email us at <?=config('mail.supportEmail')?>
+```
+
+Using configs in this way gives you __consistency__ (ensures you're using the same address everywhere) and __flexibility__ (if your address changes, you only have to change it in one spot).
+
+In addition to adding configurations to existing config files, you can also create entirely new config files as needed.
+
+
+## Environments
+Building a web application often entails running that application in different environments that have different configuration needs.
 
 For example, when running your application locally on your machine, you would define this as a **local** environment and it would have specific configuration needs, for example:
 
@@ -9,7 +55,6 @@ For example, when running your application locally on your machine, you would de
 + Connect to a local, development database
 + Route outgoing mail through a service like [MailTrap.io](https://mailtrap.io/)
 
-<br>
 On the flip side, you also have your application running on a live server, which you would define as a **production** environment that may have these specific configuration needs:
 
 + Turn off all error reporting to the page

@@ -23,7 +23,7 @@ Route::get('/practice', function () {
 + __Cons:__ Not ideal to clutter up your routes file, but not a big deal if you remember to remove it when done.
 
 
-## Option 2: Practice controller + routes
+## Option 2: Practice controller
 Create a Controller dedicated to practice work, `PracticeController.php`, with a dynamic route to access the individual methods. This is what I'll do for lecture.
 
 Refer to foobooks' [routes/web.php](https://github.com/susanBuck/foobooks/blob/master/routes/web.php) and [/app/Http/Controllers/PracticeController.php](https://github.com/susanBuck/foobooks/blob/master/app/Http/Controllers/PracticeController.php) to see how it's set up.
@@ -33,7 +33,7 @@ Refer to foobooks' [routes/web.php](https://github.com/susanBuck/foobooks/blob/m
 
 
 
-## Option 3 Artisan Tinker
+## Option 3: Artisan Tinker
 If you run `php artisan tinker` in your Laravel project, you'll get an interactive console for tinkering with your app.
 
 Example:
