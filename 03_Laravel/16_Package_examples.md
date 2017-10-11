@@ -171,13 +171,13 @@ Which method you want to use is up to you, but here's a general guideline:
 
 ## Deploying packages to production
 
-If you deploy new code to your production server that involves the addition or removal of a package, you need to run `composer install` on production so it will sync up your packages.
+If you deploy new code to your production server that involves the addition or removal of a package, you need to run `composer install --no-dev` on production so it will sync up your packages.
 
-Note the command for production is `composer install`, not `composer update` which you've been using locally. The difference:
+Note the command for production is `composer install --no-dev`, not `composer update` which you've been using locally. The difference:
 
 * Use `composer update` on __development environment(s)__ so it grabs the package versions set in your `composer.json` file and updates your `composer.lock` file to match these versions.
 
-* Use `composer install` on __production environment(s)__ so it grabs the package versions set in your `composer.lock` file (i.e. mirror the versions exactly as they are on the development environment).
+* Use `composer install --no-dev` on __production environment(s)__ so it grabs the package versions set in your `composer.lock` file (i.e. mirror the versions exactly as they are on the development environment). The `--no-dev` flag is added so it excludes packages specified in `require-dev`.
 
 
 ## Composer dump autoload
