@@ -53,8 +53,8 @@ deploy () {
     dump 'git pull origin master:'
     git pull origin master
     line
-    dump 'composer install:'
-    composer install
+    dump 'composer install --no-dev:'
+    composer install --no-dev
 }
 
 

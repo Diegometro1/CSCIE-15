@@ -6,7 +6,7 @@ When we're ready to deploy changes to our production servers, we start by locall
 
 ```bash
 $ git add --all
-$ git commit -m 'Added form validation'
+$ git commit -m "Added form validation"
 ```
 
 Then, we run the following 5 commands to deploy these changes on our production servers.
@@ -33,7 +33,7 @@ git pull origin master
 
 5. Update packages (if a Laravel-based project):
 ```bash
-composer install
+composer install --no-dev
 ```
 
 Running these 5 commands can be streamlined into a single command via a __deployment script__.
@@ -70,7 +70,7 @@ $ chmod +x bash/deploy.sh
 Add, commit, and push this new file:
 ```
 $ git add bash/deploy.sh
-$ git commit -m 'Added deploy script'
+$ git commit -m "Added deploy script"
 $ git push origin master
 ```
 
@@ -94,8 +94,14 @@ $ chmod +x /var/www/html/foobooks/bash/deploy.sh
 ### Step 3) Setup alias locally
 Locally, in the root of your project run the following command to create a new git alias for `pd` (short for `push deploy`):
 
+Mac users:
 ```xml
 $ git config alias.pd '!git push origin master && bash/deploy.sh'
+```
+
+Windows users:
+```xml
+$ git config alias.pd "!git push origin master && bash/deploy.sh"
 ```
 
 This creates an alias for the command `!git push origin master && bash/deploy.sh` which will push any commits to your repo and then invoke the deploy script to deploy the changes on your server.

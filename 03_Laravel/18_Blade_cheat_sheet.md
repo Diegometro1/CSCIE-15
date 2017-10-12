@@ -18,7 +18,7 @@ The following is a list of commonly used Blade directives. This list is not comp
 + Stacks
     + `@push('x')` - Starts a stack called `x`
     + `@endpush` - Ends a stack
-    + `@stack(x)` - Yields the contents of a stack called `x`
+    + `@stack('x')` - Yields the contents of a stack called `x`
 
 
 ### Sub-views

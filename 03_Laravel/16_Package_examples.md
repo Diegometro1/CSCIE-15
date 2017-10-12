@@ -170,7 +170,6 @@ Which method you want to use is up to you, but here's a general guideline:
 
 
 ## Deploying packages to production
-
 If you deploy new code to your production server that involves the addition or removal of a package, you need to run `composer install --no-dev` on production so it will sync up your packages.
 
 Note the command for production is `composer install --no-dev`, not `composer update` which you've been using locally. The difference:
