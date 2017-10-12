@@ -92,22 +92,15 @@ $ chmod +x /var/www/html/foobooks/bash/deploy.sh
 
 
 ### Step 3) Setup alias locally
-Locally, in the root of your project run the following command to create a new git alias for `pd` (short for `push deploy`):
+Next, we want to set up a git alias that will push any commits *and* invoke your deploy script.
 
-Mac users:
-```xml
-$ git config alias.pd '!git push origin master && bash/deploy.sh'
+This is done by editing `.git/config` and adding an alias to the bottom like so:
+```
+[alias]
+    pd = !git push origin master && bash/deploy.sh
 ```
 
-Windows users:
-```xml
-$ git config alias.pd "!git push origin master && bash/deploy.sh"
-```
-
-This creates an alias for the command `!git push origin master && bash/deploy.sh` which will push any commits to your repo and then invoke the deploy script to deploy the changes on your server.
-
-To test it out, run the following:
-
+After you save your changes to `.git/config` test out your new alias by running the following:
 ```
 $ git pd
 ```
@@ -155,16 +148,6 @@ Package manifest generated successfully.
 
 
 ## Common problems and tips
-
-### Git alias
-You can edit your project's git alias' by editing the file `.git/config`
-
-Example alias set in `.git/config`:
-
-```xml
-[alias]
-        pd = !git push origin master && bash/deploy.sh
-```
 
 ### Problem: deploy.sh: Permission denied
 If you receive the following message when trying to run your deploy script...

@@ -7,15 +7,9 @@ docRoot="/var/www/html/foobooks"
 usernameServer="root@server.ip.address"
 
 
-# Function to output a line in bold text
-dump () {
-    echo "\033[1m"$1"\033[0m"
-}
-
-
-# Function to output a line seperator
+# Helper function to output a line seperator
 line () {
-    dump "--------------------------------------"
+    echo "--------------------------------------"
 }
 
 
@@ -23,10 +17,10 @@ line () {
 # This function is invoked when this script is run on your local machine.
 welcome () {
     line
-    dump "Git status on server for $docRoot:"
+    echo "Git status on server for $docRoot:"
     ssh $usernameServer "cd $docRoot; git status"
     line
-    dump "Do you want to continue with deployment? (y/n)"
+    echo "Do you want to continue with deployment? (y/n)"
 
     read -${BASH_VERSION+e}r choice
 
@@ -35,11 +29,11 @@ welcome () {
             ssh $usernameServer "$docRoot/bash/deploy.sh"
             ;;
         n)
-            dump "Ok, goodbye!";
+            echo "Ok, goodbye!";
             exit
             ;;
         *)
-            dump "Unknown command";
+            echo "Unknown command";
             ;;
     esac
 }
@@ -50,10 +44,10 @@ welcome () {
 deploy () {
     cd $docRoot;
     line
-    dump 'git pull origin master:'
+    echo 'git pull origin master:'
     git pull origin master
     line
-    dump 'composer install --no-dev:'
+    echo 'composer install --no-dev:'
     composer install --no-dev
 }
 
