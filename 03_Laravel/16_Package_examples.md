@@ -83,10 +83,15 @@ To install `cebe/markdown`, instead of using `composer require` we'll update `co
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=5.6.4",
-        "laravel/framework": "5.3.*",
-        "barryvdh/laravel-debugbar": "^2.3",
-        "cebe/markdown": "^1.1"
+        "php": ">=7.0.0",
+        "fideloper/proxy": "~3.3",
+        "laravel/framework": "5.5.*",
+        "laravel/tinker": "~1.0",
+        "cebe/markdown": "~1.1.1"
+    },
+    "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.1",
+        [...]
     },
 }
 ```
