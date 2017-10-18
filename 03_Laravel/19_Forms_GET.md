@@ -5,9 +5,9 @@ What we know about forms so far:
 
 + Forms are constructed using HTML elements
 + Data entered into forms can be sent to the server using the HTTP methods GET or POST
-+ This data can then be extracted from PHP superglobals, $_GET or $_POST
-+ Data collected from should be validated to ensure the visitor is entering the appropriate data
-+ Data collected from a visitor via a form should be escaped before being output to the page
++ This data can then be extracted from PHP superglobals, `$_GET` or `$_POST`
++ Data collected from should be __validated__ to ensure the visitor is entering the appropriate data
++ Data collected from a visitor via a form should be __escaped/sanitized__ before being output to the page
 
 <br>
 All these points hold true when it comes to working with forms in a framework, but Laravel will provide some tools that make our interactions with forms more robust.
@@ -224,7 +224,7 @@ In `search.blade.php`, right after the form, add this code:
             <div class='book'>
                 <h3>{{ $title }}</h3>
                 <h4>by {{ $book['author'] }}</h4>
-                <img src='{{$book['cover']}}'>
+                <img src='{{ $book['cover'] }}'>
             </div>
         @endforeach
     @endif

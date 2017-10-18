@@ -17,7 +17,7 @@ In the following steps, I'll provide the necessary code, which will be explained
 @section('content')
     <h1>Add a new book</h1>
 
-    <form method='POST' action='/book/new'>
+    <form method='POST' action='/book'>
         {{ csrf_field() }}
 
         <label for='title'>Title</label>
@@ -32,7 +32,7 @@ In the following steps, I'll provide the necessary code, which will be explained
 Add *before* the `/book/{title?}` route.
 
 ```php
-Route::get('/book/new', 'BookController@create');
+Route::get('/book/create', 'BookController@create');
 Route::post('/book', 'BookController@store');
 ```
 
