@@ -219,15 +219,14 @@ In `search.blade.php`, right after the form, add this code:
     @if(count($searchResults) == 0)
         No matches found.
     @else
-        <div class='book'>
-            @foreach($searchResults as $title => $book)
-
+       
+        @foreach($searchResults as $title => $book)
+            <div class='book'>
                 <h3>{{ $title }}</h3>
                 <h4>by {{ $book['author'] }}</h4>
                 <img src='{{$book['cover']}}'>
-
-            @endforeach
-        </div>
+            </div>
+        @endforeach
     @endif
 @endif
 ```
