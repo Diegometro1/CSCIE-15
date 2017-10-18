@@ -20,7 +20,7 @@ In the following steps, I'll provide the necessary code, which will be explained
 
 
 ### Step 1) Data
-First step, we'll need some book data to work with, so copy the json code from Foobooks v0's [book.json](https://github.com/susanBuck/foobooks0/blob/master/books.json) and save this in a file called `books.json` in your application's `database/` directory.
+First step, we'll need some book data to work with, so copy the json code from Foobooks v0's [books.json](https://github.com/susanBuck/foobooks0/blob/master/books.json) and save this in a file called `books.json` in your application's `database/` directory.
 
 
 ### Step 2) View
