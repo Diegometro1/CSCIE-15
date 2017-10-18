@@ -118,8 +118,8 @@ Now imagine a hacker (perhaps a nefarious competitor?) has dug through your sour
 
 The hacker would then try to get your users to view the page on their site and submit the form (perhaps through a [phishing](https://en.wikipedia.org/wiki/Phishing) email campaign).
 
-This is an example of a cross site request forgery&mdash; the hacker's site is trying to submit a request to *your* site. If your users fall for this trick, and if they're accessing the hacker's site via a browser that's also logged into your site, bad stuff can happen.
+This is an example of a __cross site request forgery__&mdash; the hacker's site is trying to submit a request to *your* site. If your users fall for this trick, and if they're accessing the hacker's site via a browser that's also logged into your site, bad stuff can happen.
 
-To prevent CSRF attacks you want to verify that the origin of requests on your site are coming from within your site. This is done by sending a unique, encrypted token with each form submission, the CSRF token.
+__To prevent CSRF attacks you want to verify that the origin of requests on your site are coming from within your site. This is done by sending a unique, encrypted token with each form submission, the CSRF token.__
 
 When the form submission is received by your application, Laravel automatically checks the token to make sure it's valid, thereby verifying the form submissions is legitimate.
