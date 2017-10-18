@@ -9,11 +9,8 @@ As a demonstration, we'll add validation to our *New Book* feature.
 
 To recap, our form for adding a new book looks like this:
 ```html
-<h1>Add a new book</h1>
-
-<form method='POST' action='/book/new'>
+<form method='POST' action='/book'>
     {{ csrf_field() }}
-
     <label for='title'>Title</label>
     <input type='text' name='title' id='title'>
     <input type='submit' value='Add book'>
@@ -32,12 +29,15 @@ Which uses this method in `BookController.php`:
 * /book
 * Process the form for adding a new book
 */
-public function store(Request $request) {
+public function store(Request $request)
+{
+        $title = $request->input('title');
 
-    $title = $request->input('title');
+        # ToDo: Add code to enter book into database
 
-    # Code will eventually go here to actually save this book to a database
-    return redirect('/book/'.$title);
+        return redirect('/book/create')->with([
+            'title' => $title
+        ]);
 }
 ```
 
@@ -59,14 +59,11 @@ public function store(Request $request) {
 
     $title = $request->input('title');
 
-    #
-    #
-    # [...Code will eventually go here to actually save this book to a database...]
-    #
-    #
+    # ToDo: Add code to enter book into database
 
-    # Redirect the user to the page to view the book
-    return redirect('/book/'.$title);
+    return redirect('/book/create')->with([
+            'title' => $title
+    ]);
 }
 ```
 
@@ -102,7 +99,6 @@ Given this, you can display errors in your view like so:
 
 <form method='POST' action='/book'>
     {{ csrf_field() }}
-
     <label for='title'>Title</label>
     <input type='text' name='title' id='title'>
     <input type='submit' value='Add book'>
