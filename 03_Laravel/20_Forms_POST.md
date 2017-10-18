@@ -90,7 +90,7 @@ Which will translate to something like this in your HTML;
 
 This line is necessary when submitting forms with `POST` (or `PUT` or `DELETE`) because it guards against CSRF attacks (explained below).
 
-If you don't have the CSRF token in your form, you'll get a `TokenMismatchException` error when trying to submit your form using the `POST`, `PUT`, or `DELETE` methods.
+If you don't have the CSRF token in your form, your users will get an expiration message when trying to submit your form using the `POST`, `PUT`, or `DELETE` methods.
 
 CSRF protection in Laravel is an example of [__Middleware__](http://laravel.com/docs/middleware#terminable-middleware):
 
