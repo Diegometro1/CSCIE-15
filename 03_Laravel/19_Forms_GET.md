@@ -200,7 +200,7 @@ public function search(Request $request) {
     }
     
     # Return the view, with the searchTerm *and* searchResults (if any)
-    return view('books.search')->with([
+    return view('book.search')->with([
         'searchTerm' => $searchTerm,
         'caseSensitive' => $request->has('caseSensitive'),
         'searchResults' => $searchResults
