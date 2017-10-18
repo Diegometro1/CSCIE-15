@@ -7,7 +7,7 @@ In the following steps, I'll provide the necessary code, which will be explained
 
 ### View
 ```html
-{{-- /resources/views/book/new.blade.php --}}
+{{-- /resources/views/book/create.blade.php --}}
 @extends('layouts.master')
 
 @section('title')
