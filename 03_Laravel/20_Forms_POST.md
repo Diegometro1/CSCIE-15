@@ -106,25 +106,19 @@ CSRF protection in Laravel is an example of [__Middleware__](http://laravel.com/
 ## What is CSRF?
 CSRF, or __Cross-Site Request Forgery__, is a type of web application vulnerability where a user unintentionally runs a script in their browser that takes advantage of their logged in status on a target site.
 
-For example, imagine you set up a route so that when users go to `http://yourdomain.com/users/delete` it will delete their account.
+For a bare-bones example, imagine your application has a form that POSTs to `http://yourdomain.com/users/delete`, which will trigger the deletion of a logged-in user's account.
 
-You've implemented proper JavaScript checking that confirms with the user they wish to delete their account before ever triggering the `/users/delete` method.
+Now imagine a hacker (perhaps a nefarious competitor?) has dug through your source code to find this URL and wishes to trick your users into deleting their accounts. The hacker does this by creating a form on their site which appears innocuous, but actually triggers the `/users/delete` route on *your* site.
 
-However, a hacker has dug through your source code to find this URL and wishes to trick your users into deleting their accounts.
-
-To accomplish this, they could present the victim with an image (in a forum post, in a email, etc.) with the delete URL set as the image src, which would execute `http://yourdomain.com/users/delete`:
-
-```html
-<img src='http://yourdomain.com/users/delete'>
+```php
+<form method='POST' action='http://yourdomain.com/users/delete'>
+    <input type='submit' value='Click to claim your free prize!'>
+</form>
 ```
 
-Alternatively, they could trick you into clicking on a link leading directly to the delete page:
+The hacker would then try to get your users to view the page on their site and submit the form (perhaps through a [phishing](https://en.wikipedia.org/wiki/Phishing) email campaign).
 
-```html
-<a href='http://yourdomain.com/users/delete'>Free stuff!</a>
-```
-
-In the above examples, the hacker is taking advantage of the fact that the victim user is potentially already logged in on the victim site.
+This is an example of a cross site request forgery&mdash; the hacker's site is trying to submit a request to *your* site. If your users fall for this trick, and if they're accessing the hacker's site via a browser that's also logged into your site, bad stuff can happen.
 
 To prevent CSRF attacks you want to verify that the origin of requests on your site are coming from within your site. This is done by sending a unique, encrypted token with each form submission, the CSRF token.
 
