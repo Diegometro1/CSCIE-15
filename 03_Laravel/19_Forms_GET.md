@@ -39,9 +39,9 @@ Next, create a new View that will display this form:
     <form method='GET' action='/search'>
 
         <label for='searchTerm'>Search by title:</label>
-        <input type='text' name='searchTerm' id='searchTerm' value='{{ $searchTerm or '' }}'>
+        <input type='text' name='searchTerm' id='searchTerm'>
 
-        <input type='checkbox' name='caseSensitive' {{ ($caseSensitive) ? 'CHECKED' : '' }} >
+        <input type='checkbox' name='caseSensitive'>
         <label>case sensitive</label>
 
         <br>
