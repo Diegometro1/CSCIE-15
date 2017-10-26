@@ -123,7 +123,6 @@ If your database connection test fails, you have some troubleshooting to do. A c
 With your database setup and your connection confirmed, you're ready to move on to **Migrations** in order to build your tables.
 
 
-<br>
 ## Troubleshooting
 
 ### MAMP users: `No such file or directory`

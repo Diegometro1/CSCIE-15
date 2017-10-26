@@ -138,7 +138,7 @@ This is the design we'll use:
 
 <img src='http://making-the-internet.s3.amazonaws.com/laravel-books-table-design@2x.png' style='max-width:480px; width:100%' alt='books table design'>
 
-To understand the **MySQL data types** chosen for each field in this table, [visit this reference of common MySQL data types](https://github.com/susanBuck/dwa15-fall2017/blob/master/03_Laravel/24_Common_MySQL_Data_Types.md).
+To understand the **MySQL data types** chosen for each field in this table, [visit this reference of common MySQL data types](https://github.com/susanBuck/dwa15-fall2017/blob/master/03_Laravel/23_Common_MySQL_Data_Types.md).
 
 This is what the above `books` table design looks like in phpMyAdmin:
 
