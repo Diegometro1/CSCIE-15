@@ -146,17 +146,10 @@ __Step 1.__
 Open your local `/.env` file and paste this line after your other `DB_*` configs:
 
 ```xml
-DB_UNIX_SOCKET='/Applications/MAMP/tmp/mysql/mysql.sock'
+DB_SOCKET='/Applications/MAMP/tmp/mysql/mysql.sock'
 ```
 
 __Step 2.__
-Open `/config/database.php` and at the bottom of the `mysql` settings, add this config:
-
-```xml
-'unix_socket' => env('DB_UNIX_SOCKET', null),
-```
-
-__Step 3.__
 In the `/debug` route given to you in the notes above, find this line:
 
 ```php
@@ -184,5 +177,3 @@ For the values under `MySQL connection config` you should see output like the fo
     [unix_socket] => /Applications/MAMP/tmp/mysql/mysql.sock
 )
 ```
-
-
