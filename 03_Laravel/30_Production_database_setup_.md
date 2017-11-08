@@ -1,3 +1,4 @@
+
 # Production database setup
 
 With the topic of __migrations__ and __seeding__ behind us, the next logical step is to set up the production database.

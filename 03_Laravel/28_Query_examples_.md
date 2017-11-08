@@ -1,5 +1,5 @@
 # Query Examples
-```php
+```php 
 # Get all rows
 $result = Book::all();
 dump($result->toArray());
