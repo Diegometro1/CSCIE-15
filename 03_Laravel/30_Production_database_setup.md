@@ -68,6 +68,7 @@ mysql> SHOW DATABASES;
 | information_schema |
 | mysql              |
 | performance_schema |
+| sys                | 
 +--------------------+
 3 rows in set (0.00 sec)
 ```
@@ -102,9 +103,6 @@ $ nano .env
 Your existing `DB` credentials will look something like this:
 
 ```xml
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
 DB_DATABASE=homestead
 DB_USERNAME=homestead
 DB_PASSWORD=secret
@@ -112,14 +110,12 @@ DB_PASSWORD=secret
 
 Update these configs, setting...
 
-+ `DB_HOST` to be `localhost`
 + `DB_DATABASE` to be `foobooks` (or whatever your project database name is)
 + `DB_USERNAME` to be `root`
 + `DB_PASSWORD` to be the same MySQL password you used in the above step.
 
 Example after edits (your password will be different):
 ```xml
-DB_HOST=localhost
 DB_DATABASE=foobooks
 DB_USERNAME=root
 DB_PASSWORD=9f15faddf3d4c9825fac6f22ab042ad4b47919ff063bd063
