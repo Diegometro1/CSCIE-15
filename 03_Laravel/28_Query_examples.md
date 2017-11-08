@@ -1,4 +1,4 @@
-# Query Examples
+# Query examples
 ```php 
 # Get all rows
 $result = Book::all();

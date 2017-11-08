@@ -1,4 +1,3 @@
-
 # Production database setup
 
 With the topic of __migrations__ and __seeding__ behind us, the next logical step is to set up the production database.
@@ -130,9 +129,7 @@ When you're done updating your values, save your changes and exit nano (`ctrl + 
 
 Now you want to confirm these credentials work.
 
-If you still have the [/debug route](https://github.com/susanBuck/dwa15-fall2015-notes/blob/master/03_Laravel/16_Local_Database_Setup.md#test-your-connection) from when you were configuring your local database connection, you can use that again to confirm your live database connection.
-
-<img src='http://making-the-internet.s3.amazonaws.com/laravel-debug-on-live@2x.png' style='max-width:855px; width:100%' alt=''>
+If you still have the [/debug route](https://github.com/susanBuck/dwa15-fall2017/blob/master/03_Laravel/24_Local_database_config.md#test-your-connection) from when you were configuring your local database connection, you can use that again to confirm your live database connection.
 
 
 
