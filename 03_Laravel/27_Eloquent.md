@@ -274,7 +274,7 @@ The combinations of constraints and fetch methods you can use are practically li
 
 To get good at writing queries it takes practice.
 
-+ Start by bookmarking and studying [these query examples...](https://github.com/susanBuck/dwa15-fall2017/blob/master/03_Laravel/28_Query_Examples.md).
++ Start by bookmarking and studying [these query examples...](https://github.com/susanBuck/dwa15-fall2017/blob/master/03_Laravel/28_Query_examples.md).
 + Skim the
 [API Docs on query methods](https://laravel.com/api/5.4/Illuminate/Database/Query/Builder.html) to see *all* the methods available to you.
 + And, of course, refer to the [Laravel Eloquent Documentation](https://laravel.com/docs/eloquent).
