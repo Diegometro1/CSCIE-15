@@ -290,26 +290,7 @@ Armed with this information, write queries to accomplish the following...
 + Find any books by the author `Bell Hooks` and update the author name to be `bell hooks` (lowercase).
 + Remove any books by the author &ldquo;J.K. Rowling&rdquo;.
 
-
-__Bonus practice:__
-
- This code...
-
-```php
-$book = new Book();
-$book->title = "Harry Potter and the Sorcerer's Stone";
-$book->save();
-```
-
-...would produce this error:
-```xml
-SQLSTATE[HY000]: General error: 1364 Field 'published' doesn't have a default value (SQL: insert into `books` (`title`, `updated_at`, `created_at`) values (Harry Potter and the Sorcerer's Stone, 2017-04-13 08:19:57, 2017-04-13 08:19:57))
-```
-
-Why?
-
-*(Solutions to these exercises will be shared next lecture)*
-
+You should construct/test these queries in a PracticeController within your Foobooks practice application. I'll ask for your solutions to these tasks in your Week 11 progress log.
 
 
 ## Another look at ORM
