@@ -98,13 +98,12 @@ class PracticeController extends Controller
 
     public function practiceX()
     {
-
         # Instantiate a new Book Model object
         $book = new Book();
 
         # Set the parameters
         # Note how each parameter corresponds to a field in the table
-        $book->title = 'Harry Potter and the Sorcerer's Stone';
+        $book->title = 'Harry Potter and the Sorcerer\'s Stone';
         $book->author = 'J.K. Rowling';
         $book->published = 1997;
         $book->cover = 'http://prodimage.images-bn.com/pimages/9780590353427_p0_v1_s484x700.jpg';
@@ -240,7 +239,6 @@ $book = Book::where('author', 'LIKE', '%Scott%')->first();
 if (!$book) {
     dump("Book not found, can't update.");
 } else {
-
     # Change some properties
     $book->title = 'The Really Great Gatsby';
     $book->published = '2025';
@@ -276,7 +274,7 @@ The combinations of constraints and fetch methods you can use are practically li
 
 To get good at writing queries it takes practice.
 
-+ Start by bookmarking and studying [these example queries...](https://github.com/susanBuck/dwa15-spring2017-notes/blob/master/03_Laravel/25_Query_Examples.md).
++ Start by bookmarking and studying [these query examples...](https://github.com/susanBuck/dwa15-fall2017/blob/master/03_Laravel/28_Query_Examples.md).
 + Skim the
 [API Docs on query methods](https://laravel.com/api/5.4/Illuminate/Database/Query/Builder.html) to see *all* the methods available to you.
 + And, of course, refer to the [Laravel Eloquent Documentation](https://laravel.com/docs/eloquent).
