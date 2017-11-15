@@ -1,49 +1,31 @@
-The following is a rough outline of the modifications I'll make to foobooks during Lecture 12.
+The following is a rough outline of the modifications I'll make to Foobooks during Lecture 12.
 
-This should not be considered a stand-alone document; for full details please refer to the lecture video and the foobooks code source.
-
-
-## List all the books
-Amend `BookController@index` so the books are coming from the database instead of the .json file:
-
-```php
-use App\Book;
-
-# [...]
-
-public function index() {
-    $books = Book::orderBy('title')->get();
-    
-    return view('books.index')->with([
-        'books' => $books
-    ]);
-}
-```
+This should not be considered a stand-alone document; for full details please refer to the lecture video and the Foobooks code source.
 
 
 
 ## Add a book
-Update `book/new.blade.php` to include `cover`, `purchase_link` fields.
+Update `book/create.blade.php` to include `cover`, `purchase_link` fields.
 
 Rename `publishedYear` field to `published` to match what we called it in the table.
-
-Mark all fields as required.
 
 Add the `old` helper for field values, and set default values to rapidly test:
 
 + Title: `Green Eggs & Ham`
-+ Published year: `1960`
-+ Image URL: `http://prodimage.images-bn.com/pimages/9780394800165_p0_v4_s192x300.jpg`
-+ Purchase URL: `http://www.barnesandnoble.com/w/green-eggs-and-ham-dr-seuss/1100170349`
++ Author: `Dr. Seuss`
++ Published: `1960`
++ Cover: `http://prodimage.images-bn.com/pimages/9780394800165_p0_v4_s192x300.jpg`
++ Purchase: `http://www.barnesandnoble.com/w/green-eggs-and-ham-dr-seuss/1100170349`
 
 (We'll remove this when we're done debugging)
 
-In BookController.php update `storeNewBook` to validate the new fields added:
+In `BookController.php` update `store` to validate the new fields added:
 
 ```php
 $this->validate($request, [
     'title' => 'required|min:3',
     'published' => 'required|numeric',
+    'author' => 'required',
     'cover' => 'required|url',
     'purchase_link' => 'required|url',
 ]);
@@ -52,10 +34,11 @@ $this->validate($request, [
 Then save the book:
 ```php
 $book = new Book();
-$book->title = $request->title;
-$book->published = $request->published;
-$book->cover = $request->cover;
-$book->purchase_link = $request->purchase_link;
+$book->title = $request->input('title');
+$book->author = $request->input('author');
+$book->published = $request->input('published');
+$book->cover = $request->input('cover');
+$book->purchase_link = $request->input('purchase_link');
 $book->save();
 ```
 
@@ -64,34 +47,30 @@ Currently redirects to the individual book, but let's change it to redirect to t
 return redirect('/book');
 ```
 
-If you do the latter, you will want to [Flash](http://laravel.com/docs/session#flash-data) a confirmation message.
+If you do the latter, you will want to [flash](https://laravel.com/docs/5.5/redirects#redirecting-with-flashed-session-data) a confirmation message which can be done via redirect's `with` method:
 
-Before redirecting:
 ```
-$request->session()->flash('message', 'Your book was added');
+return redirect('/book')->with('alert', 'Your book was added.');
 ```
-
-Explanation of a __flash messages/sessions__
 
 Then in `master.blade.php`:
-
 ```php
-@if(session('message') != null))
-    <div class='message'>{{ session('message') }}</div>
+@if(session('message'))
+    <div class='alert'>{{ session('message') }}</div>
 @endif
 ```
 
 Which can be styled however you want:
 ```css
-.message {
+.alert {
+    background-color:yellow;
     width:100%;
-    text-align:center;
-    padding:5px;
     position:fixed;
     top:0;
     left:0;
-    background-color:yellow;
+    padding:5px;
     font-weight:bold;
+    text-align:center;
 }
 ```
 
@@ -99,52 +78,71 @@ Which can be styled however you want:
 ## Edit a book
 Start `book/edit.blade.php` by copying `book/create.blade.php`.
 
-In order to edit a book, we need to know *which* book to edit.
-
-Update edit route to use `{id}` rather than `{title}`
-
-Hide the id in the form as a hidden field.
+Create the routes to a) show the edit form and b) process the edit form:
 ```php
-<input type='hidden' name='id' value='{{ $book->id }}'>
+# Show the form to edit a specific book
+Route::get('/book/{id}/edit', 'BookController@edit');
+
+# Process the form to edit a specific book
+Route::put('/book/{id}', 'BookController@update');
 ```
 
-That way when the form is submitted, the controller action can retrieve the book id to know which book to edit:
+Note the use of the `put` method here. In order to submit via PUT we need to use [form method spoofing](https://laravel.com/docs/5.5/routing#form-method-spoofing) like so:
+
 ```php
-$book = Book::find($id);
-return view('books.edit')->with('book', $book);
+<form method='POST' action='/book/{{ $book->id }}'>
+
+    {{ method_field('put') }}
+
+    {{ csrf_field() }}
+
+    [...]
+</form>
 ```
 
-Test it with ids 1,2,3, etc.
-
-Add links from individual book page.
-
-Handle a bad id:
+Edit method to show the form:
 ```php
-if(is_null($book)) {
-    $request->session()->flash('message', 'Book not found');
-    return redirect('/books');
+/*
+* GET /book/{id}/edit
+*/
+public function edit($id)
+{
+    $book = Book::find($id);
+
+    if (!$book) {
+        return redirect('/book')->with('alert', 'Book not found.');
+    }
+
+    return view('book.edit')->with(['book' => $book]);
 }
 ```
 
-Do the edit:
+Update method to process the form:
 ```php
-$book = Book::find($request->id);
+/*
+* PUT /book/{id}
+*/
+public function update(Request $request, $id)
+{
+    $this->validate($request, [
+        'title' => 'required|min:3',
+        'author' => 'required',
+        'published' => 'required|min:4|numeric',
+        'cover' => 'required|url',
+        'purchase_link' => 'required|url',
+    ]);
 
-$book->title = $request->title;
-$book->cover = $request->cover;
-$book->published = $request->published;
-$book->purchase_link = $request->purchase_link;
+    $book = Book::find($id);
 
-$book->save();
+    $book->title = $request->input('title');
+    $book->author = $request->input('author');
+    $book->published = $request->input('published');
+    $book->cover = $request->input('cover');
+    $book->purchase_link = $request->input('purchase_link');
+    $book->save();
 
-return 'Book was saved'.
-```
-
-
-Better return:
-```php
-$request->session()->flash('message', 'Your changes were saved');
-return redirect('/books/edit/'.$request->id);
+    return redirect('/book/'.$id.'/edit')->with('alert', 'Your changes were saved.');
+}
 ```
 
 
