@@ -70,7 +70,7 @@ Because of the above points, you can pass a Collection to a view where it can be
 
 Controller:
 ```php
-function practiceX() {
+function index() {
     $books = Book::all();
     return view('books.index')->with(['books' => $books]);
 }
