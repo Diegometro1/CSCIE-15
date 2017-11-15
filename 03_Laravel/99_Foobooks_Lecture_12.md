@@ -22,13 +22,6 @@ public function index() {
 
 
 
-## Make /book the homepage as well
-```php
-Route::get('/', 'BookController@index');
-```
-
-
-
 ## Add a book
 Update `book/new.blade.php` to include `cover`, `purchase_link` fields.
 
