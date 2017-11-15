@@ -12,8 +12,11 @@ use App\Book;
 # [...]
 
 public function index() {
-    $books = Book::all();
-    return view('books.index')->with(['books' => $books]);
+    $books = Book::orderBy('title')->get();
+    
+    return view('books.index')->with([
+        'books' => $books
+    ]);
 }
 ```
 

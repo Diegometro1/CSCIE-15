@@ -65,7 +65,7 @@ I Know Why the Caged Bird Sings
 
 
 
-## Using Collections in your Views
+## Using Collections in views
 Because of the above points, you can pass a Collection to a view where it can be iterated through like a regular array or object:
 
 Controller:
@@ -123,7 +123,7 @@ __Refer to the docs on [Collections: Available Methods](https://laravel.com/docs
 
 | Method   |      Usage      |
 |----------|-------------|
-| `all`|  Get all of the items in the collection. |
+| `all()`|  Get all of the items in the collection. |
 | `first()` | Get the first item from the collection. |
 | `last()` | Get the last item from the collection. |
 | `shift()` | Get and remove the first item from the collection. |
@@ -153,7 +153,8 @@ __For example...__
 Imagine a scenario in which you're building a page that shows an alphabetical listing of all the books in the foobooks database. You start with an Eloquent query:
 
 ```php
-$books = Book::orderBy('title')->get(); # Query DB
+# Query DB
+$books = Book::orderBy('title')->get(); 
 ```
 
 Now imagine that on the same page you also want to have a special *What's New* section at the top which highlights the three most recently added books the the library.
@@ -161,13 +162,15 @@ Now imagine that on the same page you also want to have a special *What's New* s
 You *could* run another Eloquent query to fetch the three most recently added books:
 
 ```php
-$newBooks = Book::orderBy('created_at', 'descending')->limit(3)->get(); # Query DB
+# Query DB
+$newBooks = Book::orderBy('created_at', 'descending')->limit(3)->get(); 
 ```
 
 But this is wasteful&mdash; the information you need already exists in the `$books` Collection from the previous query, so you should extract it from there rather than making &ldquo;another trip&rdquo; to the database. And so, using some Collection methods, you can extract the information you need from the `$books` Collection:
 
 ```php
-$newBooks = $books->sortByDesc('created_at')->take(3); # Query existing Collection
+# Query existing Collection
+$newBooks = $books->sortByDesc('created_at')->take(3); 
 ```
 
 *[Discussed in lecture: Trade-off of putting *too* much responsibility on the Collection.]*
