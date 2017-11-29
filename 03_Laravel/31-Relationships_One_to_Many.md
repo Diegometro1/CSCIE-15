@@ -100,7 +100,6 @@ use App\Author;
 
 Fill in the run method:
 ```php
-
 public function run()
 {
     # Array of author data to add
@@ -110,13 +109,10 @@ public function run()
         ['Maya', 'Angelou', 1928, 'https://en.wikipedia.org/wiki/Maya_Angelou'],
         ['J.K.', 'Rowling', 1965, 'https://en.wikipedia.org/wiki/J._K._Rowling']
     ];
-
-
     $count = count($authors);
 
     # Loop through each author, adding them to the database
-    foreach($authors as $author) {
-
+    foreach ($authors as $author) {
         Author::insert([
             'created_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
             'updated_at' => Carbon\Carbon::now()->subDays($count)->toDateTimeString(),
@@ -126,8 +122,6 @@ public function run()
             'bio_url' => $author[3],
         ]);
     }
-}
-
 }
 ```
 
@@ -161,7 +155,6 @@ $ php artisan make:migration connect_authors_and_books
 Fill in the up/down methods. Note that foreign keys have to be __unsigned__ (i.e. positive).
 
 ```php
-
 public function up()
 {
     Schema::table('books', function (Blueprint $table) {
