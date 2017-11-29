@@ -59,8 +59,7 @@ Fill in the up/down methods:
 ```php
 public function up()
 {
-    Schema::create('authors', function (Blueprint $table) {
-
+    Schema::create('authors', function (Blueprint $table) {F
         $table->increments('id');
         $table->timestamps();
 
@@ -68,7 +67,6 @@ public function up()
         $table->string('last_name');
         $table->integer('birth_year');
         $table->string('bio_url');
-
     });
 }
 
@@ -286,7 +284,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model {
 
-	public function author() {
+    public function author() {
         # Book belongs to Author
         # Define an inverse one-to-many relationship.
         return $this->belongsTo('App\Author');
