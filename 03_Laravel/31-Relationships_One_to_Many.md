@@ -130,10 +130,10 @@ Update the `run` method in `/database/seeds/DatabaseSeeder.php` to invoke this n
 ```php
 public function run()
 {
-	# Because `books` will be associated with `authors`,
+    # Because `books` will be associated with `authors`,
     # authors should be seeded first
-	$this->call(AuthorsTableSeeder::class);
-	$this->call(BooksTableSeeder::class);
+    $this->call(AuthorsTableSeeder::class);
+    $this->call(BooksTableSeeder::class);
 }
 ```
 
