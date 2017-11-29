@@ -51,7 +51,7 @@ public function up()
 
 public function down()
 {
-    Schema::drop('tags');
+    Schema::dropIfExists('tags');
 }
 ```
 
@@ -125,7 +125,7 @@ public function up()
 
 public function down()
 {
-    Schema::drop('book_tag');
+    Schema::dropIfExists('book_tag');
 }
 ```
 
@@ -175,25 +175,24 @@ public function run()
     # The *key* will be the book title, and the *value* will be an array of tags.
     # Note: purposefully omitting the Harry Potter books to demonstrate untagged books
     $books =[
-        'The Great Gatsby' => ['novel','fiction','classic','wealth'],
-        'The Bell Jar' => ['novel','fiction','classic','women'],
-        'I Know Why the Caged Bird Sings' => ['autobiography','nonfiction','classic','women']
+        'The Great Gatsby' => ['novel', 'fiction', 'classic', 'wealth'],
+        'The Bell Jar' => ['novel', 'fiction', 'classic', 'women'],
+        'I Know Why the Caged Bird Sings' => ['autobiography', 'nonfiction', 'classic', 'women']
     ];
 
     # Now loop through the above array, creating a new pivot for each book to tag
     foreach ($books as $title => $tags) {
 
         # First get the book
-        $book = Book::where('title','like',$title)->first();
+        $book = Book::where('title', 'like', $title)->first();
 
         # Now loop through each tag for this book, adding the pivot
         foreach ($tags as $tagName) {
-            $tag = Tag::where('name','LIKE',$tagName)->first();
+            $tag = Tag::where('name', 'LIKE', $tagName)->first();
 
             # Connect this tag to this book
             $book->tags()->save($tag);
         }
-
     }
 }
 ```
@@ -206,15 +205,15 @@ __Make sure your migrations and seeds have been run without error before proceed
 ## Query relationship example
 Here's what we've accomplished:
 
-1. Created and seeded the `tags` table.
+1. Created and seed the `tags` table.
 2. Let our Models (`Book` and `Tag`) know about the relationship between one another.
 3. Created and seeded the `book_tag` table.
 
 With that all set up, we can look at an example  of retrieving a single book with its tags:
 ```php
-public function practiceX() 
+public function practice() 
 {
-    $book = Book::where('title','=','The Great Gatsby')->first();
+    $book = Book::where('title', '=', 'The Great Gatsby')->first();
 
     dump($book->title.' is tagged with: ');
     foreach ($book->tags as $tag) {
@@ -225,7 +224,7 @@ public function practiceX()
 
 Or many books with their tags (note how tags are eagerly loaded to reduce queries):
 ```php
-public function practiceX() 
+public function practice() 
 {
     $books = Book::with('tags')->get();
 
