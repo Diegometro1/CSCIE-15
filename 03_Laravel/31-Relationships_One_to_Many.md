@@ -265,12 +265,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Author extends Model
+class Author extends Model {
 
 	public function books() {
-		# Author has many Books
-		# Define a one-to-many relationship.
-		return $this->hasMany('App\Book');
+        # Author has many Books
+        # Define a one-to-many relationship.
+        return $this->hasMany('App\Book');
 	}
 }
 ```
@@ -287,9 +287,9 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model {
 
 	public function author() {
-		# Book belongs to Author
-		# Define an inverse one-to-many relationship.
-		return $this->belongsTo('App\Author');
+        # Book belongs to Author
+        # Define an inverse one-to-many relationship.
+        return $this->belongsTo('App\Author');
 	}
 }
 ```
