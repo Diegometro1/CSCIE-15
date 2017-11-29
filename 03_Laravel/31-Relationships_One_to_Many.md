@@ -304,7 +304,7 @@ Here's an example where we create a book, and then associate that book with an a
 
 
 ```php
-$author = Author::where('first_name','=','J.K.')->first();
+$author = Author::where('first_name', '=', 'J.K.')->first();
 
 $book = new Book;
 $book->title = "Fantastic Beasts and Where to Find Them";
@@ -356,7 +356,7 @@ If you're querying for many books, you may want to join in the related author da
 $books = Book::with('author')->get();
 
 foreach($books as $book) {
-    echo $book->author->first_name.' '.$book->author->last_name.' wrote '.$book->title.'<br>';
+    dump($book->author->first_name.' '.$book->author->last_name.' wrote '.$book->title);
 }
 
 dump($books->toArray());
