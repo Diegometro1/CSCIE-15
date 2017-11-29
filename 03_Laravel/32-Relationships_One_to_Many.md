@@ -355,7 +355,7 @@ If you're querying for many books, you may want to join in the related author da
 # Eager load the author with the book
 $books = Book::with('author')->get();
 
-foreach($books as $book) {
+foreach ($books as $book) {
     dump($book->author->first_name.' '.$book->author->last_name.' wrote '.$book->title);
 }
 
