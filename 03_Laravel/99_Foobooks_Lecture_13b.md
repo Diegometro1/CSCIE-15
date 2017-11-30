@@ -141,7 +141,7 @@ public function delete(Request $request)
 
 
 ## Misc changes 
-In addition to the above, you'll also see the following changes reflected in the Foobooks code base. These changes were not shown in the lecture videos because they were concepts we've already covered.
+In addition to the above, you'll also see the following changes reflected in the Foobooks code base. These changes were not shown in the lecture videos because they utilize concepts we've already covered.
 
 + Moved the tag checkbox code to its own view (`tagsForCheckboxes`) so it can be used on both Edit and Add book pages.
 + Integrated tags feature into the Add book page.

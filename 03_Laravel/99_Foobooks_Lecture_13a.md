@@ -6,16 +6,14 @@ This should not be considered a stand-alone document; for full details please re
 
 
 ## Author dropdown
-To associate Authors with Books we'll use a dropdown filled with authors.
+To associate Authors with Books we'll use a dropdown filled with authors. We'll start by showing this in the *Add* feature, and later add it to the *Edit* feature.
 
 To make this happen, we first need an __array of authors__ where the key is the author `id` and the value is the author `name`.
 
 ```php
 # BookController.php
-public function edit($id)
+public function create($id)
 {
-    $book = Book::find($id);
-
     # Get all the authors
     $authors = Author::orderBy('last_name')->get();
 
@@ -25,8 +23,6 @@ public function edit($id)
         $authorsForDropdown[$author->id] = $author->last_name.', '.$author->first_name;
     }
 
-    # [...]
-
     # Make sure $authorsForDropdown is made available the view
     return view('book.edit')->with([
         'book' => $book,
@@ -34,29 +30,33 @@ public function edit($id)
     ]);
 ```
 
-Then, we can construct the dropdown (`<select>`) using this data:
+Construct the dropdown (`<select>`) in the view using this data:
 
 ```html
 <label for='author'>* Author:</label>
 <select name='author' id='author'>
     @foreach($authorsForDropdown as $id => $name)
-        <option value='{{ $id }}' {{ (isset($book) and $id == $book->author->id) ? 'SELECTED' : '' }}>{{ $name }}</option>
+        <option value='{{ $id }}'>{{ $name }}</option>
     @endforeach
 </select>
 ```
 
+Update the `BookController@store` method so also save the author details about the book.
 
-Now in `update()` set the `author_id` using the data from the dropdown in `$request`:
+One way to do this:
+```php
+$author = Author::find($request->input('author'));
+$book->author()->associate($author);
+```
+
+Or, just manually specify the `author_id` since we already have it in the request. Saves us a trip to the database to fetch the Author object.
 ```php
 $book->author_id = $request->input('author');
 ```
 
-Test it out to make sure it's working.
-
-
 
 ## Custom model methods
-We'll want to do the same thing on the *Add a Book* page.
+We'll want to do the same thing on the *Edit* page.
 
 Rather than duplicate the &ldquo;get authors for dropdown&rdquo; code, we can extract it out of the controller and add it as a method to the `Author` model:
 
@@ -73,7 +73,7 @@ public static function getForDropdown()
 }
 ```
 
-Then in `edit()`:
+Then in `BookController@create`:
 ```
 $authorsForDropdown = Author::getForDropdown();
 ```
