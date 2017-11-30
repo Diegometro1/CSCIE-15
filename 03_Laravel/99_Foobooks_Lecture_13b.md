@@ -1,5 +1,5 @@
 # Week 13 Foobooks progress, Part B
-
+# Many to Many in Foobooks
 The following is a very rough outline of some of the modifications I'll make to foobooks during Week 13.
 
 This should not be considered a stand-alone document; for full details please refer to the lecture video and the foobooks code source.
@@ -21,7 +21,6 @@ To accomplish this, we'll need to gather the following data:
 1. All the possible tags
 2. All the tags associated with the book we're looking at.
 
-
 First, a `getForCheckboxes()` method in the Tag model:
 
 ```php
@@ -37,7 +36,6 @@ public static function getForCheckboxes()
     }
 
     return $tagsForCheckboxes;
-
 }
 ```
 
@@ -49,6 +47,10 @@ public function edit($id = null)
 {
     # Get this book and eager load its tags
     $book = Book::with('tags')->find($id);
+
+    if (!$book) {
+        return redirect('/book')->with('alert', 'Book not found');
+    }
 
     # Get authors
     $authorsForDropdown = Author::getForDropdown();
@@ -62,7 +64,7 @@ public function edit($id = null)
     foreach ($book->tags as $tag) {
         $tagsForThisBook[] = $tag->name;
     }
-    # Results in an array like this: $tagsForThisBook => ['novel','fiction','classic'];
+    # Results in an array like this: $tagsForThisBook => ['novel', 'fiction', 'classic'];
 
     return view('book.edit')
         ->with([
@@ -84,7 +86,7 @@ public function edit($id = null)
         type='checkbox'
         value='{{ $id }}'
         name='tags[]'
-        {{ (in_array($name, $tagsForThisBook)) ? 'CHECKED' : '' }}
+        {{ (isset($tagsForThisBook) and in_array($name, $tagsForThisBook)) ? 'CHECKED' : '' }}
     >
     {{ $name }} <br>
 @endforeach
@@ -101,27 +103,16 @@ public function update(Request $request, $id)
 
     # Find and update book
     $book = Book::find($request->id);
+
+    $book->tags()->sync($request->input('tags'));
+
     $book->title = $request->title;
     $book->cover = $request->cover;
     $book->published = $request->published;
     $book->purchase_link = $request->purchase_link;
     $book->save();
 
-    # If there were tags selected...
-    if($request->tags) {
-        $tags = $request->tags;
-    }
-    # If there were no tags selected (i.e. no tags in the request)
-    # default to an empty array of tags
-    else {
-        $tags = [];
-    }
-
-    # Sync tags
-    $book->tags()->sync($tags);
-    $book->save();
-
-    # [... Finish removed for brevity ..]
+    # [...finish removed for brevity..]
 }
 ```
 
@@ -134,20 +125,27 @@ Now that books are associated with tags, you'll get a *foreign key constraint* S
 ```php
 public function delete(Request $request)
 {
-    # Get the book to be deleted
-    $book = Book::find($request->id);
+    $book = Book::find($id);
 
-    if(!$book) {
-        Session::flash('message', 'Deletion failed; book not found.');
-        return redirect('/books');
+    if (!$book) {
+        return redirect('/book')->with('alert', 'Book not found');
     }
 
-    # Remove any tag associations with this book
     $book->tags()->detach();
 
     $book->delete();
 
-    # [...etc...]
+    return redirect('/book')->with('alert', $book->title.' was removed.');
 }
 ```
+
+
+## Misc changes 
+In addition to the above, you'll also see the following changes reflected in the Foobooks code base. These changes were not shown in the lecture videos because they were concepts we've already covered.
+
++ Moved the tag checkbox code to its own view (`tagsForCheckboxes`) so it can be used on both Edit and Add book pages.
++ Integrated tags feature into the Add book page.
++ Added some more tags to the seeds.
+
+
 
