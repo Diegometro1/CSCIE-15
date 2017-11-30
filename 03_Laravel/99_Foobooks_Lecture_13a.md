@@ -1,8 +1,8 @@
 # Week 13 Foobooks progress, Part A
 # One to Many in Foobooks
-The following is a very rough outline of some of the modifications I'll make to foobooks during Week 13.
+The following is a __rough outline__ of some of the modifications I'll make to Foobooks during Week 13.
 
-This should not be considered a stand-alone document; for full details please refer to the lecture video and the foobooks code source.
+__This should not be considered a stand-alone document; for full details please refer to the lecture video and the Foobooks code source.__
 
 
 ## Author dropdown
@@ -85,5 +85,17 @@ public static function getAllWithAuthors()
 {
     return Book::with('author')->orderBy('id','desc')->get();
 }
+```
+
+
+## Validation
+```php
+$this->validate($request, [
+    'title' => 'required|min:3',
+    'author' => 'notIn:0', # <----
+    'published' => 'required|min:4|numeric',
+    'purchase_link' => 'required|url',
+    'cover' => 'required|url',
+]);
 ```
 

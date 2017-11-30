@@ -1,8 +1,8 @@
 # Week 13 Foobooks progress, Part B
 # Many to Many in Foobooks
-The following is a very rough outline of some of the modifications I'll make to foobooks during Week 13.
+The following is a __rough outline__ of some of the modifications I'll make to Foobooks during Week 13.
 
-This should not be considered a stand-alone document; for full details please refer to the lecture video and the foobooks code source.
+__This should not be considered a stand-alone document; for full details please refer to the lecture video and the Foobooks code source.__
 
 
 ## Using Tags/Many to Many
@@ -12,7 +12,7 @@ We need a way to associate tags with books (either from the *Edit Book* or *Crea
 
 For authors, this was done with a dropdown which worked because each book can have only *one* author.
 
-Each book can have *many* tags, though, so a dropdown won't do. Instead, lets show all possible tags with checkboxes.
+Each book can have *many* tags, though, so a dropdown won't do. Instead, let's show all possible tags with checkboxes. Example of what we're aiming for:
 
 <img src='http://making-the-internet.s3.amazonaws.com/laravel-foobooks-tag-checkboxes@2x.png' style='max-width:357px; width:100%' alt='Tags checkboxes'>
 
@@ -24,7 +24,6 @@ To accomplish this, we'll need to gather the following data:
 First, a `getForCheckboxes()` method in the Tag model:
 
 ```php
-# app/Tag.php
 public static function getForCheckboxes()
 {
     $tags = Tag::orderBy('name')->get();
@@ -39,10 +38,9 @@ public static function getForCheckboxes()
 }
 ```
 
-Then update the `edit` method in `BookController`:
+Then update `BookController@edit`:
 
 ```php
-# BookController.php
 public function edit($id = null)
 {
     # Get this book and eager load its tags
@@ -76,6 +74,7 @@ public function edit($id = null)
 }
 ```
 
+Use this array of tags to construct the checkboxes in the view:
 ```php
 # /resources/views/book/edit.blade.php
 
@@ -95,8 +94,8 @@ public function edit($id = null)
 ```
 
 
+In `BookController@update` where we save the updates, sync the tags from the request:
 ```php
-# BookController.php
 public function update(Request $request, $id)
 {
     # [...validation removed for brevity...]
@@ -104,7 +103,7 @@ public function update(Request $request, $id)
     # Find and update book
     $book = Book::find($request->id);
 
-    $book->tags()->sync($request->input('tags'));
+    $book->tags()->sync($request->input('tags')); # <---
 
     $book->title = $request->title;
     $book->cover = $request->cover;
@@ -115,8 +114,6 @@ public function update(Request $request, $id)
     # [...finish removed for brevity..]
 }
 ```
-
-Test it out by removing and adding tags.
 
 
 ## Revisiting the book delete feature
@@ -138,6 +135,8 @@ public function delete(Request $request)
     return redirect('/book')->with('alert', $book->title.' was removed.');
 }
 ```
+
+
 
 
 ## Misc changes 
