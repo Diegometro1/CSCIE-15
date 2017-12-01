@@ -265,7 +265,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Author extends Model {
 
-    public function books() 
+    public function books()
     {
         # Author has many Books
         # Define a one-to-many relationship.
@@ -285,7 +285,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model {
 
-    public function author() 
+    public function author()
     {
         # Book belongs to Author
         # Define an inverse one-to-many relationship.
@@ -329,7 +329,7 @@ $book->author_id = $author->id;
 
 
 ## (Read) Querying with relationships
-Once your Models have been programmed with relationships, it's easy to join data amongst multiple tables using [dynamic properties](http://laravel.com/docs/eloquent#dynamic-properties).
+Once your Models have been programmed with relationships, it's easy to join data amongst multiple tables using [dynamic properties](https://laravel.com/docs/5.5/eloquent-relationships#relationship-methods-vs-dynamic-properties).
 
 For example, you can fetch a book and have access to its author info...
 
@@ -349,7 +349,7 @@ dump($book->toArray());
 
 
 ## Eager Loading
-If you're querying for many books, you may want to join in the related author data with that query. This can be done via the [with()](http://devdocs.io/laravel/api/4.2/illuminate/database/eloquent/model#method_with) method and is referred to as **eager loading**:
+If you're querying for many books, you may want to join in the related author data with that query. This can be done via the `with` method and is referred to as [**eager loading**](https://laravel.com/docs/5.5/eloquent-relationships#eager-loading):
 
 ```php
 # Eager load the author with the book
