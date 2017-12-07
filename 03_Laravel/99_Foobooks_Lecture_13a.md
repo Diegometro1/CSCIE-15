@@ -35,6 +35,7 @@ Construct the dropdown (`<select>`) in the view using this data:
 ```html
 <label for='author'>* Author:</label>
 <select name='author' id='author'>
+    <option value='' selected='selected' disabled='disabled'>Choose one...</option>
     @foreach($authorsForDropdown as $id => $name)
         <option value='{{ $id }}'>{{ $name }}</option>
     @endforeach
@@ -65,7 +66,6 @@ Rather than duplicate the &ldquo;get authors for dropdown&rdquo; code, we can ex
 public static function getForDropdown()
 {
     $authors = Author::orderBy('last_name')->get();
-    $authorsForDropdown = [0 => 'Choose one...'];
     foreach ($authors as $author) {
         $authorsForDropdown[$author->id] = $author->first_name.' '.$author->last_name;
     }
@@ -92,10 +92,9 @@ public static function getAllWithAuthors()
 ```php
 $this->validate($request, [
     'title' => 'required|min:3',
-    'author' => 'notIn:0', # <----
+    'author' => 'required', # <----
     'published' => 'required|min:4|numeric',
     'purchase_link' => 'required|url',
     'cover' => 'required|url',
 ]);
 ```
-
