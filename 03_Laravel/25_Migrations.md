@@ -101,7 +101,7 @@ To do this, we'll refer to the plan we came up with in the *Database Primer* not
 
 <img src='http://making-the-internet.s3.amazonaws.com/laravel-books-table-design@2x.png' style='max-width:480px; width:100%' alt='books table design'>
 
-To understand the MySQL data types chosen each field, [refer again to this table](https://github.com/susanBuck/dwa15-fall2017/blob/master/03_Laravel/24_Common_MySQL_Data_Types.md).
+To understand the MySQL data types chosen each field, [refer again to this table](https://github.com/susanBuck/dwa15-fall2017/blob/master/03_Laravel/23_Common_MySQL_Data_Types.md).
 
 For all our tables/fields, we'll follow these naming conventions:
 
@@ -115,7 +115,7 @@ With the `books` table design in mind, it's time to write the migration code tha
 Modify the `up` method so it looks like this:
 
 ```php
-public function up() 
+public function up()
 {
 
 	Schema::create('books', function (Blueprint $table) {
@@ -173,7 +173,7 @@ Migrated: 2014_10_12_100000_create_password_resets_table
 Migrated: 2017_04_06_072743_create_books_table
 ```
 
-FYI: The first time you run `php artisan migrate` it will create a `migrations` table which will be used to keep track of what migrations you've run. 
+FYI: The first time you run `php artisan migrate` it will create a `migrations` table which will be used to keep track of what migrations you've run.
 
 That should do the trick. Examine your new `books` table in phpMyAdmin to make sure it matches the design you were aiming for.
 
@@ -205,7 +205,7 @@ root@DWA-Fall-2017:/var/www/html/foobooks# php artisan migrate:fresh
 
 
 
-## Altering tables 
+## Altering tables
 Once a table has been created and used in a live-production setting, any future changes to that table should also be made via a migration.
 
 For example, let's imagine down the road you wanted to add a `page_count` field to the books table. In that situation, you'd do the following (you don't have to do this now since this is purely hypothetical):
@@ -234,8 +234,8 @@ public function down() {
 
 When you next run `php artisan migrate`, it would recognize this new migration that has not been run, and it would run it, altering your `books` table.
 
-Using migrations in this way effectively creates a version control system for your database tables, allowing you to manage changes over time and across different environments. 
+Using migrations in this way effectively creates a version control system for your database tables, allowing you to manage changes over time and across different environments.
 
-In this course, we don't need to worry about these kind of alteration migrations because we're not dealing with real data. Given that, it's more straightfoward to just make edits to your existing &ldquo;create table&rdquo; migrations and re-run them. 
+In this course, we don't need to worry about these kind of alteration migrations because we're not dealing with real data. Given that, it's more straightfoward to just make edits to your existing &ldquo;create table&rdquo; migrations and re-run them.
 
 *To be discussed in lecture: Factors to consider when altering tables in real world environments that have real world data.*
