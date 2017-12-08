@@ -4,7 +4,7 @@ Integrating authentication into Project 4 is optional and this information will 
 
 
 ## Auth::check()
-With the mechanisms for authorization in place you can now adapt your application to do different things based on whether the visitor is logged in or not. 
+With the mechanisms for authorization in place you can now adapt your application to do different things based on whether the visitor is logged in or not.
 
 To demonstrate this, we're now going to shift Foobooks so its features are only accessible to logged in users.
 
@@ -137,6 +137,86 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/search', 'BookController@search');
 });
 ```
+
+
+## Making the user data available to all views
+It's common to want the logged-in user's data available to all views. For example, if you had a nav/menu bar, you may want a link to the user's profile or settings on every page.
+
+There's several different ways you accomplish this task, but we'll use a [view composer](https://laravel.com/docs/5.5/views#view-composers).
+
+> &ldquo;View composers are callbacks or class methods that are called when a view is rendered. If you have data that you want to be bound to a view each time that view is rendered, a view composer can help you organize that logic into a single location.&rdquo;
+
+To demonstrate this, we'll make it so that the "logout" button in the nav bar includes the logged in user's name.
+
+Start by creating a new class called `ViewServiceProvider.php` in `app/Providers` with the following code:
+
+```php
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\ServiceProvider;
+
+class ViewServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap the application services.
+     * @return void
+     */
+    public function boot()
+    {
+        # The * indicates this view composer will be available to all views
+        view()->composer('*', function ($view) {
+            $user = request()->user();
+            $view->with('user', $user);
+        });
+    }
+
+    /**
+     * Register the application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+}
+```
+
+Then in `config/app.php` register this new provider by adding the line `App\Providers\ViewServiceProvider::class,` to the end of the `providers` array.
+
+```php
+    'providers' => [
+
+        # [...]
+
+        /*
+         * Application Service Providers...
+         */
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
+        App\Providers\ViewServiceProvider::class, # <-- NEW
+    ],
+
+],
+```
+
+Any view in your app should now have access to a variable `$user`. Here's an example showing usage of that variable as part of the logout link from the nav:
+
+```php
+<li>
+    <form method='POST' id='logout' action='/logout'>
+        {{ csrf_field() }}
+        <a href='#' onClick='document.getElementById("logout").submit();'>Logout {{ $user->name }}</a>
+    </form>
+</li>
+```
+
 
 
 
