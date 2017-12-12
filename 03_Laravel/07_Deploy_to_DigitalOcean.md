@@ -3,7 +3,7 @@ The following steps outline the procedure for deploying a new Laravel applicatio
 Summary:
 
 1. Clone your Laravel app
-2. Build the `vendor/` directory via `composer install`
+2. Build the `vendor/` directory via `composer install --no-dev`
 3. Set permissions
 4. Set up `.env` file
 5. Configure subdomain
@@ -38,16 +38,18 @@ This is because vendors are managed by Composer and are *not* version controlled
 Given this, you need to have Composer build your vendor's directory with this command:
 
 ```xml
-$ composer install
+$ composer install --no-dev
 ```
 
-The following is example output from the above command. Note:
-
+Notes:
 + Running this command may take a few minutes
++ The `--no-dev` flag is added to indicate we only want packages intended for use on production; it will exclude packages used for local development/testing.
 + Don't worry about the lines regarding suggested packages you should install; we can always add the suggested components later as needed.
 
+
+Example output from the above command:
 ```xml
-root@lamp-512mb-nyc3-01:/var/www/html/foobooks# composer install
+root@lamp-512mb-nyc3-01:/var/www/html/foobooks# composer install --no-dev
 Do not run Composer as root/super user! See https://getcomposer.org/root for details
 Loading composer repositories with package information
 Installing dependencies (including require-dev) from lock file
@@ -72,6 +74,8 @@ When Composer is complete, if you list the contents of your project you should n
 
 <img src='http://making-the-internet.s3.amazonaws.com/laravel-vendor-on-do@2x.png' style='max-width:617px;' alt='Vendor directory now on DigitalOcean server'>
 
+
+
 ## Permissions
 As discussed when we were setting up Laravel on your local server, Laravel/the Apache web server needs write access to the `storage` and `bootstrap/cache` directories.
 
@@ -91,9 +95,6 @@ $ sudo chown -R www-data bootstrap/cache
 ```
 
 Ref: [SuperUser: Setting correct permissions for uploading files](http://superuser.com/a/581259/84723)
-
-
-
 
 
 ## Set up .env file on production
@@ -157,7 +158,9 @@ Moving forward, your deployment process will look like this:
 
 1. From local `add`, `commit`, and `push` changes.
 2. SSH into your DigitalOcean droplet and navigate into your app folder, then run `git pull origin master`.
-2. Also while SSH'd in to your app folder, run `composer install` to install any dependencies.
+2. Also while SSH'd in to your app folder, run `composer install --no-dev`.
+
+It's important to always run `composer install --no-dev` when deploying code changes. This command will make sure your code base has the latest versions of all dependencies and it will also refresh your application's classmap with the latest details.
 
 
 ## Troubleshooting
