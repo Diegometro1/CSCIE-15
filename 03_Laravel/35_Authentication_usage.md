@@ -139,8 +139,16 @@ Route::group(['middleware' => 'auth'], function () {
 ```
 
 
-## Making the user data available to all views
-It's common to want the logged-in user's data available to all views. For example, if you had a nav/menu bar, you may want a link to the user's profile or settings on every page.
+## Making the user data available to many or all views
+It's common to want the logged-in user's data available to many or all views. For example, if you had a nav/menu bar, you may want a link to the user's profile or settings on every page.
+
+One way to do this is to make sure every time you return a view, you include `$user` as part of the data:
+
+```php
+return view('x')->with(['user' => $user]);
+```
+
+However, if *every* page needs this info, this makes for a lot of repeat code. A better approach is to find a way to make this data &ldquo;universally&rdquo; available.
 
 There's several different ways you accomplish this task, but we'll use a [view composer](https://laravel.com/docs/5.5/views#view-composers).
 
@@ -166,8 +174,9 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        # The * indicates this view composer will be available to all views
-        view()->composer('*', function ($view) {
+        # This view composer will make the data available for the `layouts.master` view, which
+        # includes the `modules.nav` view where we want to use this data.
+        view()->composer('layouts.master', function ($view) {
             $user = request()->user();
             $view->with('user', $user);
         });
@@ -206,7 +215,7 @@ Then in `config/app.php` register this new provider by adding the line `App\Prov
 ],
 ```
 
-Any view in your app should now have access to a variable `$user`. Here's an example showing usage of that variable as part of the logout link from the nav:
+Your master and nav views should now have access to a variable `$user`. Here's an example showing usage of that variable as part of the logout link from the nav:
 
 ```php
 <li>
@@ -216,8 +225,6 @@ Any view in your app should now have access to a variable `$user`. Here's an exa
     </form>
 </li>
 ```
-
-
 
 
 ## Reference
